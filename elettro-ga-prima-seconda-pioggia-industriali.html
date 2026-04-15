@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elettro G.A. – Quadri Prima, Seconda Pioggia e Riuso Industriali</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark: #0a2a5e;
+      --blue-mid: #1155a0;
+      --blue-light: #2980d9;
+      --blue-sky: #5aaee8;
+      --accent: #f5a623;
+      --green: #27ae60;
+      --white: #ffffff;
+      --light-gray: #f4f6fa;
+      --text-dark: #1a1a2e;
+      --text-mid: #333;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--blue-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px; flex-wrap: wrap; gap: 8px;
+    }
+    nav .logo { font-family: 'Oswald', sans-serif; color: #fff; font-size: 1.1rem; font-weight: 700; }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    nav ul li a {
+      color: #cde; text-decoration: none; font-size: 0.69rem;
+      text-transform: uppercase; letter-spacing: .4px;
+      padding: 4px 8px; border-radius: 3px; transition: background .2s;
+    }
+    nav ul li a:hover, nav ul li a.active { background: var(--blue-mid); color: #fff; }
+    .subnav {
+      background: #0d1e40; text-align: center; padding: 6px 24px;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 4px;
+    }
+    .subnav a { color: #aac; text-decoration: none; font-size: 0.67rem; text-transform: uppercase; padding: 3px 8px; }
+    .subnav a:hover, .subnav a.active { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0d2a50 0%, #1a4a80 50%, #2060a0 100%);
+      min-height: 220px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      align-items: center;
+      gap: 30px; padding: 40px 50px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,100,200,0.12) 0%, rgba(0,150,255,0.04) 100%);
+    }
+    .hero-img { background: rgba(255,255,255,0.1); border-radius: 8px; min-height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; }
+    .hero-text { position: relative; }
+    .hero-text h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+      color: var(--white); letter-spacing: 3px;
+      line-height: 1.2; text-transform: uppercase;
+    }
+    .hero-text h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.8rem);
+      color: var(--accent); letter-spacing: 5px;
+      text-transform: uppercase; margin-top: 6px;
+    }
+    .hero-text h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(0.9rem, 2vw, 1.4rem);
+      color: var(--blue-sky); letter-spacing: 6px;
+      text-transform: uppercase; margin-top: 4px;
+    }
+
+    /* ── 3-COL ACQUE ── */
+    .acque-section {
+      background: var(--light-gray); padding: 36px 50px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .acque-col { text-align: center; }
+    .acque-col h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem; color: var(--blue-mid);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .acque-col .sub {
+      font-size: 0.73rem; color: #667;
+      font-style: italic; margin-bottom: 8px;
+    }
+    .acque-col p { font-size: 0.78rem; color: var(--text-mid); line-height: 1.75; }
+
+    /* ── INTRO ── */
+    .intro-section { padding: 40px 50px; background: #fff; }
+    .intro-section h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem; font-weight: 700; font-style: italic;
+      color: var(--blue-mid); margin-bottom: 14px;
+    }
+    .intro-section p { font-size: 0.85rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 10px; }
+    .intro-section p strong { color: var(--blue-dark); }
+    .intro-section ul { padding-left: 18px; font-size: 0.83rem; line-height: 2; color: var(--text-mid); margin-bottom: 12px; }
+    .intro-section ul li strong { color: var(--blue-dark); }
+
+    /* ── PRODOTTO BLOCK ── */
+    .prodotto-block { padding: 50px 50px; }
+    .prodotto-block.white { background: #fff; }
+    .prodotto-block.gray { background: var(--light-gray); }
+
+    .prod-top {
+      display: grid; grid-template-columns: 220px 1fr;
+      gap: 30px; max-width: 1000px; margin: 0 auto 30px; align-items: start;
+    }
+    .prod-label {
+      background: #fff; border-radius: 8px;
+      padding: 16px; text-align: center;
+      border: 2px solid #c0d4ea;
+    }
+    .prod-label .model-pre {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem; color: #667;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .prod-label h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; color: var(--blue-dark);
+      letter-spacing: 1px; margin: 4px 0;
+    }
+    .prod-label .version { font-size: 0.72rem; color: #778; margin-top: 2px; }
+    .prod-label .flags { margin-top: 8px; font-size: 1.2rem; }
+    .prod-img {
+      background: linear-gradient(135deg, #b8d0e8, #88b0cc);
+      border-radius: 8px; min-height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .prod-desc { max-width: 1000px; margin: 0 auto; font-size: 0.84rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 20px; }
+    .prod-desc strong { color: var(--blue-dark); }
+
+    /* ── 5 CARD SPECS ── */
+    .specs-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 14px; max-width: 1000px; margin: 0 auto 24px;
+    }
+    .spec-card {
+      background: #fff; border-radius: 6px;
+      padding: 14px; border-top: 3px solid var(--blue-light);
+      font-size: 0.75rem;
+    }
+    .spec-card.blue-card { background: var(--blue-mid); border-top-color: var(--accent); }
+    .spec-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.73rem; color: var(--blue-mid);
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .spec-card.blue-card h4 { color: var(--accent); }
+    .spec-card ul { padding-left: 12px; line-height: 1.9; color: var(--text-mid); }
+    .spec-card.blue-card ul { color: #cde; }
+    .spec-card ul li::marker { color: var(--blue-light); }
+
+    /* ── NOTE PRODOTTO ── */
+    .prod-note {
+      max-width: 1000px; margin: 0 auto;
+      font-size: 0.8rem; color: #667; font-style: italic;
+      border-top: 1px solid #d0ddef; padding-top: 12px;
+    }
+
+    /* ── DOWNLOAD ── */
+    .download-row {
+      max-width: 1000px; margin: 20px auto 0;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .dl-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--light-gray); border-radius: 6px; padding: 12px 18px;
+    }
+    .dl-box .icon { font-size: 1.6rem; }
+    .dl-box p { font-size: 0.74rem; color: #667; line-height: 1.5; }
+    .dl-box p strong { color: var(--blue-dark); display: block; }
+    .btn-dl {
+      display: inline-block; background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif; font-size: 0.78rem;
+      letter-spacing: 1px; text-transform: uppercase; padding: 9px 20px;
+      border-radius: 4px; text-decoration: none; margin-left: auto;
+    }
+    .btn-dl:hover { background: var(--blue-dark); }
+
+    /* ── SECONDA PIOGGIA INFO ── */
+    .seconda-info {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+      padding: 40px 50px;
+      display: grid; grid-template-columns: 1fr 320px;
+      gap: 30px; align-items: start;
+    }
+    .seconda-info h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem; color: var(--accent);
+      letter-spacing: 2px; margin-bottom: 12px;
+    }
+    .seconda-info p { font-size: 0.82rem; color: #cde; line-height: 1.85; margin-bottom: 10px; }
+    .seconda-info ul { padding-left: 16px; font-size: 0.8rem; color: #cde; line-height: 2; }
+    .seconda-info ul li strong { color: var(--white); }
+    .seconda-img {
+      background: rgba(255,255,255,0.1); border-radius: 8px;
+      min-height: 180px; display: flex; align-items: center;
+      justify-content: center; font-size: 3rem;
+    }
+
+    /* ── TIPOLOGIE AVVIAMENTO ── */
+    .avv-section { background: #fff; padding: 50px 50px; }
+    .avv-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 8px;
+    }
+    .avv-section .sub { font-size: 0.83rem; color: #667; margin-bottom: 28px; line-height: 1.75; }
+    .avv-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; max-width: 860px;
+    }
+    .avv-card { border: 1px solid #c0d4ea; border-radius: 8px; overflow: hidden; }
+    .avv-card-header { background: var(--blue-mid); padding: 10px 16px; }
+    .avv-card-header h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem; color: var(--white); letter-spacing: 1px;
+    }
+    .avv-card-img {
+      height: 80px; background: linear-gradient(135deg, #b0c8e0, #80a8cc);
+      display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+    }
+    .avv-card-body { padding: 14px; font-size: 0.78rem; color: var(--text-mid); line-height: 1.8; }
+    .avv-card-body strong { color: var(--blue-dark); display: block; margin-bottom: 4px; }
+
+    /* ── ACCESSORI ── */
+    .accessori-section {
+      background: var(--light-gray); padding: 40px 50px;
+    }
+    .accessori-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 6px;
+    }
+    .accessori-section .sub { font-size: 0.82rem; color: #667; margin-bottom: 24px; }
+    .acc-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; max-width: 860px;
+    }
+    .acc-item { text-align: center; }
+    .acc-item .icon { font-size: 2rem; margin-bottom: 6px; }
+    .acc-item p { font-size: 0.74rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ── ELETTROPOMPE ── */
+    .pompe-section { background: #fff; padding: 40px 50px; }
+    .pompe-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 6px;
+    }
+    .pompe-section .sub { font-size: 0.83rem; color: #667; margin-bottom: 28px; }
+    .pompe-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; max-width: 900px;
+    }
+    .pompa-card { border: 1px solid #c8d8ee; border-radius: 6px; overflow: hidden; }
+    .pompa-header { background: var(--blue-mid); padding: 10px 14px; }
+    .pompa-header h4 { font-family: 'Oswald', sans-serif; font-size: 0.77rem; color: #fff; letter-spacing: 1px; }
+    .pompa-header .sub2 { font-size: 0.68rem; color: #acd; margin-top: 2px; }
+    .pompa-img {
+      height: 80px; background: linear-gradient(135deg, #b8d0e8, #88b0cc);
+      display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+    }
+    .pompa-body { padding: 12px 14px; font-size: 0.75rem; color: var(--text-mid); line-height: 1.85; }
+    .pompa-body ul { padding-left: 12px; }
+    .pompa-body ul li strong { color: var(--blue-dark); }
+
+    /* ── TABELLA ── */
+    .tabella-section { background: var(--light-gray); padding: 30px 50px; }
+    .tabella-section h3 {
+      font-family: 'Oswald', sans-serif; font-size: 0.85rem;
+      color: var(--blue-dark); letter-spacing: 2px; margin-bottom: 14px;
+    }
+    table.pt {
+      width: 100%; max-width: 700px; border-collapse: collapse;
+      font-size: 0.76rem; background: #fff; border-radius: 6px;
+      overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    table.pt thead { background: var(--blue-mid); color: #fff; }
+    table.pt thead th {
+      padding: 8px 10px; font-family: 'Oswald', sans-serif;
+      font-size: 0.71rem; letter-spacing: 1px; text-align: left;
+    }
+    table.pt tbody tr:nth-child(even) { background: var(--light-gray); }
+    table.pt tbody td { padding: 7px 10px; color: var(--text-mid); border-bottom: 1px solid #e0e8f5; }
+
+    /* ── MADE IN + CARATTERISTICHE ── */
+    .made-caract {
+      background: #fff; padding: 40px 50px;
+      display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start;
+    }
+    .made-box {
+      background: var(--light-gray); border-radius: 8px;
+      padding: 24px; text-align: center;
+    }
+    .made-box .flag { font-size: 2.5rem; margin-bottom: 8px; }
+    .made-box p {
+      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
+      letter-spacing: 2px; color: var(--blue-dark); text-transform: uppercase;
+    }
+    .made-box .sub { font-size: 0.72rem; color: #667; margin-top: 8px; letter-spacing: 0; text-transform: none; font-family: 'Open Sans', sans-serif; }
+    .caract-right h3 {
+      font-family: 'Oswald', sans-serif; font-size: 0.85rem;
+      color: var(--blue-mid); letter-spacing: 1px; margin-bottom: 10px;
+    }
+    .caract-right ul { padding-left: 16px; font-size: 0.8rem; line-height: 2; color: var(--text-mid); }
+    .caract-right ul li strong { color: var(--blue-dark); }
+
+    /* ── VANTAGGI 3 ICONE ── */
+    .vantaggi-section { background: var(--light-gray); padding: 40px 50px; }
+    .vant-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 30px; max-width: 860px; margin: 0 auto;
+    }
+    .vant-item { display: flex; flex-direction: column; gap: 8px; }
+    .vant-item .icon { font-size: 1.8rem; }
+    .vant-item h4 {
+      font-family: 'Raleway', sans-serif; font-size: 0.86rem;
+      font-weight: 700; color: var(--blue-dark);
+    }
+    .vant-item p { font-size: 0.8rem; line-height: 1.75; color: var(--text-mid); }
+    .btn-vant {
+      display: inline-block; margin-top: 10px;
+      background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif; font-size: 0.78rem;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 4px; text-decoration: none;
+    }
+
+    /* ── FORM ── */
+    .form-section { background: #fff; padding: 50px 50px; }
+    .form-section h2 {
+      font-family: 'Oswald', sans-serif; font-size: 1.4rem;
+      color: var(--blue-dark); letter-spacing: 2px; margin-bottom: 24px;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--blue-dark); }
+    .form-group input, .form-group textarea {
+      border: 1px solid #c0ccdd; border-radius: 4px;
+      padding: 8px 12px; font-size: 0.81rem;
+      background: var(--light-gray); resize: vertical;
+    }
+    .form-full { grid-column: 1 / -1; }
+    .privacy-row {
+      grid-column: 1 / -1;
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.75rem; color: #555; line-height: 1.6;
+    }
+    .btn-submit {
+      display: inline-block;
+      background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.88rem; letter-spacing: 2px;
+      text-transform: uppercase; padding: 10px 28px;
+      border: none; border-radius: 4px; cursor: pointer;
+    }
+    .btn-submit:hover { background: var(--blue-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0f1e; color: #99aabb;
+      padding: 40px; text-align: center; font-size: 0.77rem; line-height: 2;
+    }
+    footer strong { color: #fff; }
+    .brands { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin: 18px 0; }
+    .brand-badge {
+      background: #fff; color: #333; font-weight: 700;
+      font-size: 0.76rem; padding: 6px 14px; border-radius: 3px; letter-spacing: 1px;
+    }
+    .footer-chatbox {
+      background: #111827; border-radius: 8px;
+      padding: 14px 20px; max-width: 280px;
+      margin: 20px auto 0; text-align: left;
+    }
+    .footer-chatbox p { font-size: 0.77rem; color: #99aabb; margin-bottom: 8px; }
+    .footer-chatbox input {
+      width: 100%; background: #1e293b;
+      border: 1px solid #334155; border-radius: 4px;
+      padding: 8px 12px; color: #cdd; font-size: 0.77rem;
+    }
+    .sep { height: 4px; background: linear-gradient(90deg, var(--blue-dark), var(--blue-sky), var(--blue-dark)); }
+
+    @media (max-width: 800px) {
+      .hero, .acque-section, .specs-grid, .seconda-info, .avv-grid,
+      .acc-grid, .pompe-grid, .made-caract, .vant-grid, .form-grid { grid-template-columns: 1fr; }
+      nav ul { justify-content: center; }
+      .intro-section, .prodotto-block, .avv-section, .accessori-section,
+      .pompe-section, .tabella-section, .made-caract, .vantaggi-section, .form-section { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="logo">⚡ <span>Elettro G.A.</span> Quadri Elettrici</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Azienda &amp; Contatti</a></li>
+    <li><a href="#">Quadri</a></li>
+    <li><a href="#">Elettropompe / Motore</a></li>
+    <li><a href="#">Quadro – Inverter</a></li>
+    <li><a href="#">Quadro – Soft Starter</a></li>
+  </ul>
+</nav>
+<div class="subnav">
+  <a href="#">Quadri – Prima Pioggia</a>
+  <a href="#" class="active">Quadri – Prima, Seconda Pioggia &amp; Riuso</a>
+  <a href="#">Rascivagni a Fune Pulizia Stalle</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-img">🌧️</div>
+  <div class="hero-text">
+    <h1>QUADRI PRIMA, SECONDA PIOGGIA</h1>
+    <h2>E RIUSO ACQUA</h2>
+    <h3>INDUSTRIALI</h3>
+  </div>
+</header>
+
+<!-- ══ 3 COLONNE ACQUE ══ -->
+<div class="acque-section">
+  <div class="acque-col">
+    <h3>PRIMA PIOGGIA</h3>
+    <div class="sub">Primi 5 mm – acque inquinate</div>
+    <p>
+      Le prime acque di pioggia, contenenti le sostanze più inquinanti depositate sulle superfici durante i periodi secchi.
+      Trattamento obbligatorio per legge (D.Lgs 152/2006 e normative regionali).
+    </p>
+  </div>
+  <div class="acque-col">
+    <h3>SECONDA PIOGGIA</h3>
+    <div class="sub">Acque successive – meno inquinate<br/>Gestione semplificata HMI</div>
+    <p>
+      Le acque meteoriche successive ai primi 5 mm, meno inquinate, che possono essere gestite con trattamento ridotto
+      o avviate al riuso dopo opportuno filtraggio.
+    </p>
+  </div>
+  <div class="acque-col">
+    <h3>RIUSO ACQUA</h3>
+    <div class="sub">Recupero per usi non potabili</div>
+    <p>
+      Sistema di recupero e riutilizzo delle acque meteoriche per irrigazione, lavaggio aree esterne, alimentazione
+      sistemi antincendio e altri usi non potabili.
+    </p>
+  </div>
+</div>
+
+<!-- ══ INTRO ══ -->
+<section class="intro-section">
+  <h2>Gestione Quadri PLC/HMI di Prima, Seconda Pioggia e Riuso Acque Industriali</h2>
+  <p>
+    I nostri sistemi di controllo gestiscono in modo intelligente e automatico l'intero ciclo delle acque meteoriche
+    all'interno di contesti industriali, artigianali e civili di grandi dimensioni. La logica programmata del
+    <strong>PLC SIEMENS</strong> o <strong>ELMARK</strong> coordina le diverse fasi di trattamento, garantendo la conformità normativa e
+    la massima efficienza operativa.
+  </p>
+  <p>
+    <strong>Da STANDARD (Singola Pompa)</strong> fino a configurazioni multi-pompa con HMI touchscreen e supervisione remota,
+    i nostri quadri si adattano a qualsiasi esigenza impiantistica.
+  </p>
+  <p>In particolare, i nostri quadri consentono di configurare:</p>
+  <ul>
+    <li><strong>Modalità Automatica:</strong> ogni quadro si gestisce in autonomia secondo la logica programmata</li>
+    <li><strong>Modalità Manuale:</strong> l'operatore può intervenire direttamente sui singoli attuatori</li>
+    <li><strong>Modalità Remota:</strong> supervisione e comando a distanza tramite HMI, SCADA o app mobile</li>
+  </ul>
+</section>
+
+<div class="sep"></div>
+
+<!-- ════════════════════
+     PRODOTTO 1 – QG-NAMATE
+     ════════════════════ -->
+<section class="prodotto-block white">
+  <div class="prod-top">
+    <div>
+      <div class="prod-label">
+        <div class="model-pre">Modello QG – NAMATE</div>
+        <h3>Pompe/Refriperatore<br/>Pioggia MMS-R 00/00/30</h3>
+        <div class="version">Versione Standard</div>
+        <div class="flags">🇮🇹</div>
+      </div>
+    </div>
+    <div class="prod-img">🌧️</div>
+  </div>
+
+  <p class="prod-desc">
+    Ogni quadro viene premontato e collaudato nel nostro laboratorio prima della spedizione. Il PLC SIEMENS S7 o ELMARK
+    gestisce le diverse fasi del ciclo idraulico: raccolta, stoccaggio, trattamento e distribuzione o scarico finale.
+    <strong>Affidabilità assoluta</strong> garantita da componenti di prima qualità e da una logica di controllo collaudata.
+  </p>
+  <p class="prod-desc">
+    L'interfaccia HMI consente all'operatore un controllo completo: visualizzazione livelli, stato pompe, allarmi e
+    storico eventi. Il sistema supporta la connessione remota via Ethernet, Wi-Fi o GSM per il monitoraggio
+    continuo dell'impianto da qualsiasi dispositivo.
+  </p>
+
+  <div class="specs-grid">
+    <div class="spec-card">
+      <h4>Elettriche installabile (6A)</h4>
+      <ul>
+        <li>Sistema quadro gestito automaticamente per tutte le configurazione</li>
+        <li>Interruttori magnetotermici</li>
+        <li>Contattori EL-Mark</li>
+        <li>Fusibili certificati</li>
+      </ul>
+    </div>
+    <div class="spec-card blue-card">
+      <h4>Configurazione HMC3</h4>
+      <ul>
+        <li>PLC Siemens Logo! / ELMARK</li>
+        <li>HMI 7" touchscreen</li>
+        <li>Display grafico avanzato</li>
+        <li>Interfaccia intuitiva operatore</li>
+      </ul>
+    </div>
+    <div class="spec-card">
+      <h4>Rilevazione L.L – A MS</h4>
+      <ul>
+        <li>Sonde di livello digitali</li>
+        <li>Trasduttori 4-20mA</li>
+        <li>Sensori di portata</li>
+        <li>Rilevatori di pioggia</li>
+      </ul>
+    </div>
+    <div class="spec-card">
+      <h4>Rilevamento e Controllo (PHDNT)</h4>
+      <ul>
+        <li>Sistema di rilevamento automatico</li>
+        <li>Controllo pH opzionale</li>
+        <li>Allarme livello min/max</li>
+        <li>Storico eventi su HMI</li>
+      </ul>
+    </div>
+    <div class="spec-card">
+      <h4>Massina Protezione Gestita IP – IP65</h4>
+      <ul>
+        <li>Carpenteria IP55 / IP65</li>
+        <li>Protezione termica motore</li>
+        <li>Protezione mancanza fase</li>
+        <li>Fusibili certificati</li>
+        <li>Quadro Elettricamente certificato</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="prod-note">
+    Configurazione di Pompa e Controllo &amp; IP65
+  </p>
+</section>
+
+<div class="sep"></div>
+
+<!-- ════════════════════
+     PRODOTTO 2 – QG-NATARES
+     ════════════════════ -->
+<section class="prodotto-block gray">
+  <div class="prod-top">
+    <div>
+      <div class="prod-label" style="border-color: var(--blue-mid);">
+        <div class="model-pre">Modello QG – NATARES</div>
+        <h3>Pompe/Refriperatore<br/>ET/BD</h3>
+        <div class="version">Versione Avanzata</div>
+        <div class="flags">🇮🇹</div>
+      </div>
+    </div>
+    <div class="prod-img" style="background: linear-gradient(135deg, #a8c0d8, #7898b8);">🌧️</div>
+  </div>
+
+  <p class="prod-desc">
+    Il modello avanzato QG-NATARES integra la gestione completa di <strong>Prima Pioggia, Seconda Pioggia e Riuso</strong> in
+    un'unica soluzione. La logica PLC gestisce automaticamente la distinzione tra i diversi flussi d'acqua,
+    attivando le elettrovalvole e le pompe nelle sequenze corrette.
+  </p>
+  <p class="prod-desc">
+    Infine, verifica tutto quello e tutte le applicazioni – qualcuno &lt;30&gt; il sistema CCPTEN duso
+    tramite lo schermo Siemens. La supervisione remota da Web è inclusa di serie. – Via a via
+  </p>
+
+  <div class="download-row">
+    <div class="dl-box">
+      <div class="icon">📄</div>
+      <p><strong>Scheda Tecnica</strong>Scarica la documentazione<br/>completa del prodotto</p>
+    </div>
+    <a href="#" class="btn-dl">⬇ Scarica PDF</a>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ══ SECONDA PIOGGIA INFO ══ -->
+<section class="seconda-info">
+  <div>
+    <h3>L.1000 – Fuga di Seconda Pioggia</h3>
+    <p>
+      Le acque di seconda pioggia vengono convogliate verso vasche di accumulo dedicate, dove vengono sottoposte
+      a un trattamento di filtrazione e sedimentazione prima di essere riutilizzate o scaricate nel corpo idrico recettore.
+    </p>
+    <p>
+      Il nostro sistema garantisce il rispetto dei limiti di scarico previsti dalla normativa vigente,
+      con possibilità di campionamento automatico e registro degli eventi.
+    </p>
+    <ul>
+      <li><strong>Accumulo:</strong> Vasche di stoccaggio prima e seconda pioggia separate</li>
+      <li><strong>Trattamento:</strong> Filtrazione, disoleazione e sedimentazione</li>
+      <li><strong>Controllo:</strong> PLC + HMI + supervisione remota</li>
+      <li><strong>Riuso:</strong> Pompe di distribuzione per usi irrigui e industriali</li>
+      <li>Ogni tipologia di agente allarga la sua prodotto di Impianto</li>
+    </ul>
+  </div>
+  <div class="seconda-img">💧</div>
+</section>
+
+<!-- ══ TIPOLOGIE DI AVVIAMENTO ══ -->
+<section class="avv-section">
+  <h2>Tipologie di avviamenti disponibili</h2>
+  <div class="sub">
+    Tutti i quadri possono essere equipaggiati con il tipo di avviamento più adatto alle specifiche esigenze del motore (da 0,75kW fino ai
+    kW motore massimi). Scegliere il tipo che la pompa richiede, garantisce maggiore sicurezza e durata motore.
+  </div>
+  <div class="avv-grid">
+    <div class="avv-card">
+      <div class="avv-card-header"><h4>Diretto</h4></div>
+      <div class="avv-card-img">⚡</div>
+      <div class="avv-card-body">
+        <strong>Avviamento Diretto fino a 15kW</strong>
+        Soluzione semplice ed economica per pompe fino a 15kW. Avvio immediato senza rampe di accelerazione.
+        Ideale per applicazioni con avvii poco frequenti.
+      </div>
+    </div>
+    <div class="avv-card">
+      <div class="avv-card-header"><h4>Soft Starter</h4></div>
+      <div class="avv-card-img">🔆</div>
+      <div class="avv-card-body">
+        <strong>Avviamento Graduale da 11kW a 90kW</strong>
+        Riduce la corrente di spunto e lo stress meccanico. Allungamento della vita della pompa e del motore.
+        Compatibile con Siemens e ABB serie PSR/PSE.
+      </div>
+    </div>
+    <div class="avv-card">
+      <div class="avv-card-header"><h4>Inverter</h4></div>
+      <div class="avv-card-img">📊</div>
+      <div class="avv-card-body">
+        <strong>Controllo Velocità variabile da 0,75kW a 75kW</strong>
+        Risparmio energetico fino al 40%. Controllo preciso della portata e della pressione.
+        Compatibile con Yaskawa, Toshiba VF-AS1, Schneider ATV320.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ACCESSORI ══ -->
+<section class="accessori-section">
+  <h2>Accessori necessari al sistema</h2>
+  <div class="sub">Dispositivi elettromeccanici</div>
+  <div class="acc-grid">
+    <div class="acc-item">
+      <div class="icon">🔌</div>
+      <p>Elettrovalvole motorizzate per la selezione automatica dei flussi prima/seconda pioggia</p>
+    </div>
+    <div class="acc-item">
+      <div class="icon">📡</div>
+      <p>Sonde di livello idrostatiche e sensori ultrasonici per il controllo continuo delle vasche</p>
+    </div>
+    <div class="acc-item">
+      <div class="icon">🌡️</div>
+      <p>Trasduttori di pressione 4-20mA per il monitoraggio della rete idraulica</p>
+    </div>
+    <div class="acc-item">
+      <div class="icon">📱</div>
+      <p>Gateway GSM/Ethernet per la supervisione remota da smartphone o PC</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ELETTROPOMPE ══ -->
+<section class="pompe-section">
+  <h2>Elettropompe sommerse e di superficie</h2>
+  <div class="sub">Proponiamo solo modelli selezionati e testati nel tempo per prestazioni e durabilità superiori</div>
+  <div class="pompe-grid">
+
+    <div class="pompa-card">
+      <div class="pompa-header">
+        <h4>Elettropompa Sommersa<br/>230V</h4>
+        <div class="sub2">Caratteristiche e Disponibili</div>
+      </div>
+      <div class="pompa-img">🔩</div>
+      <div class="pompa-body">
+        <ul>
+          <li><strong>Alimentazione:</strong> 230V Monofase</li>
+          <li><strong>Portata max:</strong> 6 m³/h</li>
+          <li><strong>Prevalenza max:</strong> 40 m</li>
+          <li><strong>Potenza:</strong> 0,37 – 1,1 kW</li>
+          <li>Corpo: acciaio inox AISI 304</li>
+          <li>Protezione: IP68</li>
+          <li>Cavo: 10 m incluso</li>
+          <li>Girante: acciaio inox</li>
+          <li>Temperatura max: 35°C</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pompa-card">
+      <div class="pompa-header">
+        <h4>Elettropompa auto<br/>230V &amp; 400V</h4>
+        <div class="sub2">Caratteristiche e Disponibili</div>
+      </div>
+      <div class="pompa-img">🔩</div>
+      <div class="pompa-body">
+        <ul>
+          <li><strong>Alimentazione:</strong> 230V / 400V</li>
+          <li><strong>Portata max:</strong> 12 m³/h</li>
+          <li><strong>Prevalenza max:</strong> 55 m</li>
+          <li><strong>Potenza:</strong> 0,55 – 2,2 kW</li>
+          <li>Tipo: auto-adescante</li>
+          <li>Protezione: IP55</li>
+          <li>Corpo: ghisa / acciaio inox</li>
+          <li>Flangia: DN 25/32/40</li>
+          <li>Temperatura max: 40°C</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pompa-card">
+      <div class="pompa-header">
+        <h4>Elettropompa cala Pioggia<br/>sommergibile (230V o 400V)</h4>
+        <div class="sub2">Caratteristiche e Disponibili</div>
+      </div>
+      <div class="pompa-img">🌧️</div>
+      <div class="pompa-body">
+        <ul>
+          <li><strong>Alimentazione:</strong> 230V / 400V</li>
+          <li><strong>Portata max:</strong> 25 m³/h</li>
+          <li><strong>Prevalenza max:</strong> 15 m</li>
+          <li><strong>Potenza:</strong> 0,75 – 4 kW</li>
+          <li>Girante: vortex anti-otturazione</li>
+          <li>Solidi: max 35 mm</li>
+          <li>Protezione: IP68</li>
+          <li>Corpo: ghisa + acciaio inox</li>
+          <li>Cavo: 10 m incluso</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TABELLA PORTATE ══ -->
+<section class="tabella-section">
+  <h3>Portate e Prevalenze</h3>
+  <table class="pt">
+    <thead>
+      <tr>
+        <th>KW</th><th>D.</th><th>B.</th><th>F.</th><th>Prot.</th><th>V</th><th>Fase</th><th>Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0.37</td><td>2.0</td><td>6</td><td>40</td><td>IP68</td><td>230V</td><td>1~</td><td>Disponibile</td></tr>
+      <tr><td>0.55</td><td>2.5</td><td>7</td><td>45</td><td>IP68</td><td>230V</td><td>1~</td><td>Disponibile</td></tr>
+      <tr><td>0.75</td><td>3.0</td><td>8</td><td>50</td><td>IP68</td><td>230V</td><td>1~</td><td>Disponibile</td></tr>
+      <tr><td>1.10</td><td>4.0</td><td>10</td><td>50</td><td>IP68</td><td>400V</td><td>3~</td><td>Disponibile</td></tr>
+      <tr><td>1.50</td><td>5.5</td><td>12</td><td>55</td><td>IP55</td><td>400V</td><td>3~</td><td>Disponibile</td></tr>
+      <tr><td>2.20</td><td>7.0</td><td>15</td><td>55</td><td>IP55</td><td>400V</td><td>3~</td><td>Disponibile</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══ MADE IN + CARATTERISTICHE ══ -->
+<section class="made-caract">
+  <div class="made-box">
+    <div class="flag">🇮🇹</div>
+    <p>MADE IN ITALY</p>
+    <div class="sub">
+      Quadri prodotti e collaudati interamente nel nostro laboratorio in Puglia.
+      Componenti di prima qualità certificati CE.
+    </div>
+    <div style="margin-top:12px;">
+      <a href="#" style="font-size:0.75rem; color:var(--blue-light); text-decoration:underline;">
+        Ottimali performance tecnica installabile →
+      </a>
+    </div>
+  </div>
+  <div class="caract-right">
+    <h3>COSTRUZIONE PERSONALIZZATA SIEMENS:</h3>
+    <ul>
+      <li><strong>Tensione:</strong> 230V / 400V Monofase o Trifase</li>
+      <li><strong>Corrente nominale:</strong> da 6A a 200A</li>
+      <li><strong>Protezione:</strong> IP55 standard, IP65 su richiesta</li>
+      <li><strong>PLC:</strong> Siemens Logo! / S7-1200 / ELMARK</li>
+      <li><strong>HMI:</strong> Display da 4,3" a 10" touchscreen</li>
+      <li><strong>Comunicazione:</strong> Ethernet, Wi-Fi, GSM, Modbus</li>
+      <li><strong>Alimentazione ausiliaria:</strong> 24V DC</li>
+      <li><strong>Certificazioni:</strong> CE, IP55/IP65</li>
+    </ul>
+    <h3 style="margin-top:16px;">CARATTERISTICHE COSTRUTTIVE:</h3>
+    <ul>
+      <li>Carpenteria in acciaio verniciata RAL 7035</li>
+      <li>Profilo DIN per montaggio componenti</li>
+      <li>Canalette cavi ordinate e cablaggio a norma</li>
+      <li>Morsettiera certificata con etichettatura</li>
+      <li>Pressacavi certificati PG/M</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ VANTAGGI ══ -->
+<section class="vantaggi-section">
+  <div class="vant-grid">
+    <div class="vant-item">
+      <div class="icon">♻️</div>
+      <h4>Riduzione dei costi<br/>Riuso Acqua Piovana</h4>
+      <p>
+        Recuperando l'acqua piovana per usi non potabili (irrigazione, lavaggio, antincendio),
+        si ottiene una riduzione significativa dei consumi idrici e dei costi in bolletta.
+      </p>
+      <a href="#" class="btn-vant">Scopri il Riuso</a>
+    </div>
+    <div class="vant-item">
+      <div class="icon">📋</div>
+      <h4>Monitoraggio Preciso<br/>Ogni Fase del Sistema</h4>
+      <p>
+        Il sistema HMI consente il monitoraggio in tempo reale di tutti i parametri dell'impianto:
+        livelli, pressioni, portate, stati delle pompe e storico degli allarmi.
+      </p>
+      <a href="#" class="btn-vant">Scopri il Monitoraggio</a>
+    </div>
+    <div class="vant-item">
+      <div class="icon">🛡️</div>
+      <h4>Piena Conformità<br/>Normativa</h4>
+      <p>
+        I nostri sistemi sono progettati per garantire la piena conformità al D.Lgs 152/2006 e
+        alle normative regionali in materia di gestione delle acque meteoriche e di prima pioggia.
+      </p>
+      <a href="#" class="btn-vant">Scopri la Normativa</a>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ══ FORM CONTATTACI ══ -->
+<section class="form-section">
+  <h2>CONTATTACI</h2>
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Nome *</label>
+      <input type="text"/>
+    </div>
+    <div class="form-group">
+      <label>Telefono *</label>
+      <input type="tel"/>
+    </div>
+    <div class="form-group">
+      <label>E-mail *</label>
+      <input type="email"/>
+    </div>
+    <div class="form-group">
+      <label>Azienda</label>
+      <input type="text"/>
+    </div>
+    <div class="form-group form-full">
+      <label>Messaggio *</label>
+      <textarea rows="5"></textarea>
+    </div>
+    <div class="privacy-row">
+      <input type="checkbox" id="priv"/>
+      <label for="priv">
+        Acconsento al trattamento dei miei dati personali da parte del proprietario di questo sito Web.
+        Il consenso è rilasciato su base volontaria al TSW.
+      </label>
+    </div>
+    <div style="grid-column:1/-1; display:flex; justify-content:flex-end; gap:12px;">
+      <button class="btn-submit">INVIA</button>
+      <button class="btn-submit" style="background:#99aabb;">Annulla</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="brands">
+    <span class="brand-badge">SIEMENS</span>
+    <span class="brand-badge">Schneider Electric</span>
+    <span class="brand-badge">ABB</span>
+    <span class="brand-badge">YASKAWA</span>
+    <span class="brand-badge">Lovato electric</span>
+    <span class="brand-badge">invt</span>
+  </div>
+  <p>
+    <strong>© Elettro G.A. Quadri Elettrici di A. Gianjero</strong><br/>
+    Trovato dalla Industria Turchese · Questione<br/><br/>
+    Progettazione e Programmazione PLC – HMI · Web Server Page Realizzazione<br/>
+    Costruzione e Assemblaggio · Quadri Elettrici<br/><br/>
+    Italia · Puglia · Bari · Poligono a mare 70041 · Largo Dino Giuseppe Puglia<br/><br/>
+    Contatti Diretti<br/>
+    <a href="mailto:Elettrogaquadrielettrici@gmail.com" style="color:#5aaee8;">Elettrogaquadrielettrici@gmail.com</a>
+    · Email Amministrazione Segreteria:
+    <a href="mailto:Deleno.Ag@email.com" style="color:#5aaee8;">Deleno.Ag@email.com</a>
+  </p>
+  <div class="footer-chatbox">
+    <p>Scrivi qui la tua domanda…</p>
+    <input type="text" placeholder="Scrivi qui la tua domanda…"/>
+  </div>
+</footer>
+
+</body>
+</html>

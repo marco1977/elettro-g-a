@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elettro G.A. – Quadri Elettropompe e Motori Standardizzati</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark: #0a2a5e;
+      --blue-mid: #1155a0;
+      --blue-light: #2980d9;
+      --blue-sky: #5aaee8;
+      --accent: #f5a623;
+      --orange: #e67e22;
+      --green: #27ae60;
+      --red: #c0392b;
+      --white: #ffffff;
+      --light-gray: #f4f6fa;
+      --text-dark: #1a1a2e;
+      --text-mid: #333;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--blue-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px; flex-wrap: wrap; gap: 8px;
+    }
+    nav .logo { font-family: 'Oswald', sans-serif; color: #fff; font-size: 1.1rem; font-weight: 700; }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    nav ul li a {
+      color: #cde; text-decoration: none; font-size: 0.69rem;
+      text-transform: uppercase; letter-spacing: .4px;
+      padding: 4px 8px; border-radius: 3px; transition: background .2s;
+    }
+    nav ul li a:hover, nav ul li a.active { background: var(--blue-mid); color: #fff; }
+    .subnav {
+      background: #0d1e40; text-align: center; padding: 6px 24px;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 4px;
+    }
+    .subnav a { color: #aac; text-decoration: none; font-size: 0.67rem; text-transform: uppercase; padding: 3px 8px; }
+    .subnav a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #050d1a 0%, #0a1f40 40%, #0d3060 100%);
+      min-height: 200px;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 40px 50px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="none" stroke="rgba(0,150,255,0.07)" stroke-width="1"/></svg>') repeat;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      color: var(--white); letter-spacing: 5px;
+      text-transform: uppercase; position: relative;
+    }
+    .hero h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.6rem);
+      color: var(--blue-sky); letter-spacing: 8px;
+      text-transform: uppercase; margin-top: 6px; position: relative;
+    }
+    .hero-badge {
+      display: inline-block; margin-top: 14px;
+      background: var(--accent); color: var(--blue-dark);
+      font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 3px; position: relative;
+    }
+
+    /* ── INTRO ── */
+    .intro-section { padding: 40px 50px; background: #fff; }
+    .intro-section p { font-size: 0.85rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 10px; }
+    .intro-section p strong { color: var(--blue-dark); }
+    .intro-section .links-row {
+      margin-top: 14px; display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.82rem;
+    }
+    .intro-section .links-row a { color: var(--blue-light); text-decoration: underline; font-weight: 600; }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      text-align: center; padding: 30px 50px 20px;
+      background: var(--light-gray);
+    }
+    .section-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem; color: var(--blue-mid);
+      letter-spacing: 2px;
+    }
+    .section-header h2 span { color: var(--orange); }
+    .section-header .volt {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; color: var(--blue-dark);
+      margin-top: 4px; letter-spacing: 2px;
+    }
+    .section-header .volt span { color: var(--red); }
+    .section-header p {
+      font-size: 0.82rem; color: var(--text-mid);
+      max-width: 700px; margin: 10px auto 0; line-height: 1.75;
+    }
+    .section-header .sub-note {
+      font-size: 0.79rem; color: #667; font-style: italic; margin-top: 6px;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .products-section { background: var(--white); padding: 30px 50px 50px; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px; max-width: 1100px; margin: 0 auto;
+    }
+    .product-card {
+      border: 1px solid #c8d8ee;
+      border-radius: 6px; overflow: hidden;
+      background: #fff;
+      display: flex; flex-direction: column;
+    }
+    .product-card-header {
+      background: var(--blue-mid);
+      padding: 10px 14px;
+    }
+    .product-card-header h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem; color: var(--white);
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .product-card-header .code {
+      font-size: 0.7rem; color: #acd; margin-top: 2px;
+    }
+    .product-card-img {
+      background: linear-gradient(135deg, #c0d4ea, #90b4d2);
+      height: 110px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+    }
+    .product-card-body { padding: 14px; flex: 1; }
+    .product-card-body .brand-line {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.73rem; color: var(--blue-mid);
+      letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .product-card-body ul {
+      padding-left: 14px; font-size: 0.76rem;
+      line-height: 1.85; color: var(--text-mid);
+    }
+    .product-card-body ul li { margin-bottom: 2px; }
+    .product-card-body ul li strong { color: var(--blue-dark); font-size: 0.74rem; }
+    .product-card-footer {
+      padding: 10px 14px;
+      background: var(--light-gray);
+      border-top: 1px solid #d0ddef;
+      font-size: 0.73rem; color: #667;
+    }
+    .btn-card {
+      display: inline-block; margin-top: 8px;
+      background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem; letter-spacing: 1px;
+      text-transform: uppercase; padding: 6px 14px;
+      border-radius: 3px; text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-card:hover { background: var(--blue-dark); }
+    .btn-card-outline {
+      background: transparent; border: 1px solid var(--blue-light);
+      color: var(--blue-light);
+    }
+    .btn-card-outline:hover { background: var(--blue-light); color: #fff; }
+
+    /* ── SEPARATOR ── */
+    .sep {
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue-sky), var(--blue-dark));
+    }
+
+    /* ── GSM SECTION ── */
+    .gsm-header {
+      text-align: center; padding: 34px 50px 20px;
+      background: var(--blue-dark);
+    }
+    .gsm-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; color: var(--white); letter-spacing: 2px;
+    }
+    .gsm-header h2 span { color: var(--accent); }
+    .gsm-header .gsm-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem; font-style: italic;
+      color: #acd; margin-top: 6px;
+    }
+    .gsm-header .volt {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; color: var(--accent);
+      margin-top: 4px; letter-spacing: 2px;
+    }
+    .gsm-header .volt span { color: var(--red); }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--light-gray); padding: 40px 50px; }
+    .faq-section ul {
+      list-style: none; max-width: 800px;
+      margin: 0 auto; display: flex; flex-direction: column; gap: 14px;
+    }
+    .faq-section ul li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.85rem; line-height: 1.75; color: var(--text-mid);
+    }
+    .faq-section ul li .faq-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--blue-mid), var(--blue-dark));
+      padding: 40px 50px;
+    }
+    .cta-banner h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; color: var(--white);
+      letter-spacing: 2px; margin-bottom: 8px;
+    }
+    .cta-banner p { font-size: 0.85rem; color: #cde; line-height: 1.75; margin-bottom: 20px; }
+    .form-inline {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      max-width: 700px;
+    }
+    .form-inline input, .form-inline textarea {
+      border: 1px solid #4477aa; border-radius: 4px;
+      padding: 8px 12px; font-size: 0.82rem;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+    }
+    .form-inline input::placeholder, .form-inline textarea::placeholder { color: #9ac; }
+    .form-inline textarea { grid-column: 1 / -1; }
+    .form-inline .privacy-row {
+      grid-column: 1 / -1;
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.76rem; color: #acd; line-height: 1.6;
+    }
+    .btn-submit {
+      display: inline-block;
+      background: var(--accent); color: var(--blue-dark);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.88rem; letter-spacing: 2px;
+      text-transform: uppercase; padding: 10px 28px;
+      border: none; border-radius: 4px; cursor: pointer;
+      transition: background .2s; margin-top: 10px;
+      grid-column: 1 / -1; justify-self: end;
+    }
+    .btn-submit:hover { background: #e09010; }
+    .form-note { font-size: 0.75rem; color: #8ab; margin-top: 10px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0f1e; color: #99aabb;
+      padding: 40px; text-align: center; font-size: 0.77rem; line-height: 2;
+    }
+    footer strong { color: #fff; }
+    .brands { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin: 18px 0; }
+    .brand-badge {
+      background: #fff; color: #333; font-weight: 700;
+      font-size: 0.76rem; padding: 6px 14px; border-radius: 3px; letter-spacing: 1px;
+    }
+    .footer-chatbox {
+      background: #111827; border-radius: 8px;
+      padding: 14px 20px; max-width: 280px;
+      margin: 20px auto 0; text-align: left;
+    }
+    .footer-chatbox p { font-size: 0.77rem; color: #99aabb; margin-bottom: 8px; }
+    .footer-chatbox input {
+      width: 100%; background: #1e293b;
+      border: 1px solid #334155; border-radius: 4px;
+      padding: 8px 12px; color: #cdd; font-size: 0.77rem;
+    }
+
+    @media (max-width: 800px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .form-inline { grid-template-columns: 1fr; }
+      nav ul { justify-content: center; }
+      .intro-section, .products-section, .faq-section, .cta-banner { padding: 30px 20px; }
+      .section-header, .gsm-header { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="logo">⚡ <span>Elettro G.A.</span> Quadri Elettrici</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Azienda &amp; Contatti</a></li>
+    <li><a href="#">Quadri</a></li>
+    <li><a href="#" class="active">Elettropompe / Motore</a></li>
+    <li><a href="#">Quadro – Inverter</a></li>
+    <li><a href="#">Quadro – Soft Starter</a></li>
+  </ul>
+</nav>
+<div class="subnav">
+  <a href="#">Quadri – Prima Pioggia</a>
+  <a href="#">Quadri – Prima, Seconda Pioggia &amp; Riuso</a>
+  <a href="#">Rascivagni a più pulizia stelle</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <h1>QUADRI ELETTROPOMPE E MOTORI STANDARDIZZATI</h1>
+  <h2>ELETTROMECCANICI</h2>
+  <div class="hero-badge">Prodotti Certificati – Cablati dal km 25 ioni</div>
+</header>
+
+<!-- ══ INTRO ══ -->
+<section class="intro-section">
+  <p>
+    I QTB presentiamo quadri elettrici la cui gamma si propone di offrire soluzioni per la gestione e la configurazione
+    di motori e/o elettropompe adeguati per ogni tipo e configurazione.
+  </p>
+  <p>
+    È tra i tanti vantaggi consta configurazione <strong>adattarsi sempre alla gestione</strong>: completamente, economia il gestione e – massima durata al <strong>60%!</strong>
+  </p>
+  <p>
+    È noi inoltre possibile realizzare su configurazione personalizzata: di servizio – <strong>massima durata al 60%!</strong>
+  </p>
+  <div class="links-row">
+    <a href="#">Avviamenti Diretti – dal monofase su Sistema a Stella/Triangolo</a>
+    <a href="#">Avviamenti Diretti – dal monofase su Sistema a Stella/Triangolo</a>
+    <a href="#">Gestione diretta del 60%!</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SEZIONE 1 – AVVIAMENTO DIRETTO
+     Alimentazione 230V o 400V
+     ════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Avviamento Diretto – <span>Alimentazione 230V o 400V</span> ⚠️</h2>
+  <div class="volt">Affidabilità che dura, <span>Tecnologia</span> che protegge</div>
+  <p>
+    Quadri di comando ad avviamento diretto per motori ed elettropompe (potenze fino: 7,5kW – 15kW).
+    <br/>Le nostre soluzioni sono realizzate, consente il controllo preciso in tutte le situazioni.
+  </p>
+  <div class="sub-note">Prodotto Disponibile | dal 2020 completamente fino alla fine Stellare/Triangolo</div>
+</div>
+
+<section class="products-section">
+  <div class="products-grid">
+
+    <!-- Card 1 -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAD 1.MF – MOS<br/>MONOFASE 230V – CAP</h3>
+        <div class="code">Avviamento Diretto 230V – MONOFASE</div>
+      </div>
+      <div class="product-card-img">⚡</div>
+      <div class="product-card-body">
+        <div class="brand-line">Analisi rele dei Allarmi E 5 Protezione:</div>
+        <ul>
+          <li>Corrente nominale (IN) e 5 Protezione: 5A – 32A</li>
+          <li>Interruttore Magnetotermico: IP 55</li>
+          <li>Tensione di lavoro: 230 V Monofase</li>
+          <li>Contattore: EL-Mark</li>
+          <li>Protezione Allarme</li>
+          <li>Potenza nominale del motore Max: 4 kW</li>
+          <li>Presa cablante: Singola/Multipla</li>
+          <li>Spia luminosa del guasto allarme</li>
+          <li>Protezione termica e integrata</li>
+          <li>Interruttore magnetotermico: Schneider / Siemens</li>
+          <li>Relè termico Regolabile</li>
+          <li>Interruttore Generale – Start/Stop</li>
+          <li>Morsetti certificati</li>
+          <li>Protezione IP55</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+        <a href="#" class="btn-card btn-card-outline" style="margin-left:6px;">Contattaci</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAD 3.M – 400V<br/>TRIFASE 400V – TRIPLA</h3>
+        <div class="code">Avviamento Diretto 400V – TRIFASE</div>
+      </div>
+      <div class="product-card-img">⚡</div>
+      <div class="product-card-body">
+        <div class="brand-line">Analisi rele dei Allarmi E 5 Protezione:</div>
+        <ul>
+          <li>Corrente nominale (IN) e 5 Protezione: 3 × 5A – 32A</li>
+          <li>Interruttore Magnetotermico: 3 × IP 55</li>
+          <li>Tensione di lavoro: 400 V Trifase</li>
+          <li>Contattore: EL-Mark / Schneider</li>
+          <li>Potenza Max: 7,5 kW</li>
+          <li>Presa cablante: Tripla</li>
+          <li>Spia di Fase / mancanza Fase</li>
+          <li>Relè Termico Regolabile</li>
+          <li>Protezione termica integrata</li>
+          <li>Interruttore Generale – Start/Stop</li>
+          <li>Morsetti certificati</li>
+          <li>Protezione IP55</li>
+          <li>Ripristino automatico</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+        <a href="#" class="btn-card btn-card-outline" style="margin-left:6px;">Contattaci</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAD 3.M – B/S 400V<br/>TRIFASE 400V – DOPPIA POMPA</h3>
+        <div class="code">Avviamento Diretto 230V / 400V – B 3×TRIFASE</div>
+      </div>
+      <div class="product-card-img">⚡</div>
+      <div class="product-card-body">
+        <div class="brand-line">Analisi rele dei Allarmi E 5 Protezione:</div>
+        <ul>
+          <li>Corrente nominale (IN) per 3 Protezione: 2 × 5A – 32A</li>
+          <li>Interruttore Magnetotermico EL-MARK: 3 × IP 55</li>
+          <li>Tensione di lavoro: 400 V Trifase</li>
+          <li>Contattore: 2 × EL-Mark</li>
+          <li>Potenza nominale del motore Max: 2 × 7,5 kW</li>
+          <li>Gestione alternata delle 2 pompe</li>
+          <li>Protezione Allarme per ogni pompa</li>
+          <li>Relè Termico Regolabile per ogni motore</li>
+          <li>Spia luminosa del guasto allarme</li>
+          <li>Protezione termica e integrata</li>
+          <li>Interruttore Generale – Start/Stop</li>
+          <li>Morsetti certificati</li>
+          <li>Protezione IP55</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+        <a href="#" class="btn-card btn-card-outline" style="margin-left:6px;">Contattaci</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     SEZIONE 2 – AVVIAMENTO DIRETTO PER GESTIONE
+     Livelli / Pressurizzazione
+     ════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Avviamento Diretto per Gestione: <span>Livelli – Pressurizzazione</span></h2>
+  <p style="font-family:'Oswald',sans-serif; font-size:0.9rem; letter-spacing:1px; color:var(--blue-dark); margin-top:8px;">
+    Sistema Digitale IO Valvole/gonfi Sonde&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;Sistema Analogico 0-10V (Trasduttori)
+  </p>
+  <div class="volt">Alimentazione 230V o 400V <span>⚠️</span></div>
+  <p style="margin-top:8px;">
+    Triangolo o Svetta al PLC su prima stanga (Maggiore D)
+  </p>
+  <p>
+    Tecnologia quadri tripla il cui sistema si propone di gestire soluzioni per la gestione della pressione e livelli,
+    completamente autonomi e funzionali. La configurazione avanzata garantisce il massima durata al motore.
+    Quadri evoluti per la gestione autonoma di più pompe in parallelo. Soluzioni per distribuzione idrica, impianti di
+    irrigazione e reti idriche complesse.
+    Quadri per il controllo del pompaggio. Gestione integrata con sensori di livello e pressione. Protezione completa del
+    motore pompa con allarmi e reporting.
+  </p>
+  <div class="sub-note">Gestione Avanzata di Sistema e Automazione – Avviamento Diretto con Automatico con Sonda</div>
+</div>
+
+<section class="products-section">
+  <div class="products-grid">
+
+    <!-- Card A -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAD 1 – LIVELLI<br/>SISTEMA DIGITALE IO</h3>
+        <div class="code">QTB-GALX 1.MF – 230V / TRIFASE</div>
+      </div>
+      <div class="product-card-img">🌊</div>
+      <div class="product-card-body">
+        <ul>
+          <li><strong>Tensione:</strong> Monofase 230V o Trifase 400V</li>
+          <li><strong>Corrente nominale:</strong> 10A – 32A</li>
+          <li><strong>N° Pompe:</strong> 1 – 2 – 3 pompe</li>
+          <li><strong>Sonde:</strong> Digitale IO Livello</li>
+          <li><strong>Contattore:</strong> EL-Mark / Schneider</li>
+          <li><strong>Relè Termico:</strong> Regolabile</li>
+          <li><strong>Protezione:</strong> IP55</li>
+          <li><strong>Schermo LCD:</strong> Display digitale</li>
+          <li>Gestione alternata pompe</li>
+          <li>Allarme livello min/max</li>
+          <li>Funzione riempimento e svuotamento</li>
+          <li>Morsetti certificati</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+      </div>
+    </div>
+
+    <!-- Card B -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAD 3 – PRESSURIZZAZIONE<br/>SISTEMA ANALOGICO 0-10V</h3>
+        <div class="code">QTB-GALP 1 – 230V TRIFASE / 400V TRIFASE</div>
+      </div>
+      <div class="product-card-img">💧</div>
+      <div class="product-card-body">
+        <ul>
+          <li><strong>Tensione:</strong> 230V / 400V Trifase</li>
+          <li><strong>Corrente nominale:</strong> 10A – 50A</li>
+          <li><strong>Trasduttore pressione:</strong> 0-10V / 4-20mA</li>
+          <li><strong>N° Pompe:</strong> 1 – 2 – 3</li>
+          <li><strong>Contattore:</strong> EL-Mark / Siemens</li>
+          <li><strong>Relè Termico:</strong> Regolabile</li>
+          <li><strong>Protezione:</strong> IP55</li>
+          <li>Gestione set-point pressione</li>
+          <li>Allarme mancanza acqua</li>
+          <li>Protezione anti-gelo integrata</li>
+          <li>Morsetti certificati</li>
+          <li>Ripristino automatico</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+      </div>
+    </div>
+
+    <!-- Card C -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAD 3+3 – LIVELLI B/S<br/>SISTEMA DIGITALE MULTI-POMPA</h3>
+        <div class="code">QTB-GALM 1 – TRIFASE 400V</div>
+      </div>
+      <div class="product-card-img">🌊</div>
+      <div class="product-card-body">
+        <ul>
+          <li><strong>Tensione:</strong> Trifase 400V</li>
+          <li><strong>N° Pompe:</strong> 2+2 o 3+3 pompe</li>
+          <li><strong>Sonde:</strong> Digitale Multi-livello</li>
+          <li><strong>Contattore:</strong> EL-Mark / Schneider</li>
+          <li><strong>Relè Termico:</strong> Regolabile per pompa</li>
+          <li><strong>Protezione:</strong> IP55</li>
+          <li>Gestione alternata + riserva</li>
+          <li>Display LCD con storico allarmi</li>
+          <li>Contatore ore lavoro per pompa</li>
+          <li>Funzione test pompa</li>
+          <li>Morsetti certificati</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <div style="font-size:0.72rem; color:var(--blue-mid); font-weight:700; margin-bottom:6px;">DISPONIBILITÀ PERSONALIZZATA</div>
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     SEZIONE 3 – AVVIAMENTO STELLA/TRIANGOLO
+     ════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Avviamento Impedenza e Stella/Triangolo 400V <span style="color:var(--orange);">⚠️</span></h2>
+  <div class="volt">Affidabilità che dura, <span>Tecnologia</span> che protegge</div>
+  <p>
+    Ideale per il controllo di motori elettrici per vasche di prima pioggia e fognatura.
+    <strong>Riduzione drastica</strong> della corrente di spunto al momento dell'avvio.
+    <strong>Adatto Progetto:</strong> Al principio di avvio si usa in un avvio a stella/triangolo.
+  </p>
+  <p style="margin-top:10px; font-size:0.79rem;">
+    Il Sistema Stella-Triangolo (S/T) si usa tipicamente per:
+  </p>
+</div>
+
+<section class="products-section">
+  <div class="products-grid">
+
+    <!-- Card S/T 1 -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAST – STELLA/TRIANGOLO<br/>SINGOLA POMPA 400V</h3>
+        <div class="code">Avviamento Stella-Triangolo – Monopompa</div>
+      </div>
+      <div class="product-card-img">🔺</div>
+      <div class="product-card-body">
+        <ul>
+          <li><strong>Tensione:</strong> Trifase 400V</li>
+          <li><strong>Potenza:</strong> da 7,5 kW a 75 kW</li>
+          <li>Interruttore Magnetotermico: IP 55</li>
+          <li>3 Contattori Stella/Triangolo + Principale</li>
+          <li>Temporizzatore per commutazione S/T</li>
+          <li>Relè Termico Regolabile</li>
+          <li>Spia luminosa Start / Stop / Allarme</li>
+          <li>Morsetti certificati</li>
+          <li>Protezione IP55</li>
+          <li>VF. – Yaskawa – Schneider</li>
+          <li>Toshiba VF-AS1 – 400V/500V</li>
+          <li>Alimentazione 400V – 5 A (Trifase – Monofase)</li>
+          <li>Protezione termica kW – ELMARK e Siemens</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+      </div>
+    </div>
+
+    <!-- Card S/T 2 -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAST – STELLA/TRIANGOLO<br/>DOPPIA POMPA 400V</h3>
+        <div class="code">Avviamento Stella-Triangolo – Bipompa</div>
+      </div>
+      <div class="product-card-img">🔺</div>
+      <div class="product-card-body">
+        <ul>
+          <li><strong>Tensione:</strong> Trifase 400V</li>
+          <li><strong>Potenza:</strong> 2 × da 7,5 kW a 75 kW</li>
+          <li>Interruttore Magnetotermico: 2 × IP 55</li>
+          <li>2 set Contattori Stella/Triangolo</li>
+          <li>Gestione alternata pompe</li>
+          <li>Temporizzatore indipendente per pompa</li>
+          <li>2 × Relè Termico Regolabile</li>
+          <li>Spia per ogni pompa: Start/Stop/Allarme</li>
+          <li>Morsetti certificati</li>
+          <li>Protezione IP55</li>
+          <li>VF. – Yaskawa – Schneider</li>
+          <li>Alimentazione 400V Trifase</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+      </div>
+    </div>
+
+    <!-- Card S/T 3 -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GAST – STELLA/TRIANGOLO<br/>TRIPLA POMPA 400V</h3>
+        <div class="code">Avviamento Stella-Triangolo – Tripompa</div>
+      </div>
+      <div class="product-card-img">🔺</div>
+      <div class="product-card-body">
+        <ul>
+          <li><strong>Tensione:</strong> Trifase 400V</li>
+          <li><strong>Potenza:</strong> 3 × da 7,5 kW a 45 kW</li>
+          <li>Interruttore Magnetotermico: 3 × IP 55</li>
+          <li>3 set Contattori Stella/Triangolo</li>
+          <li>Gestione alternata 3 pompe</li>
+          <li>3 × Relè Termico Regolabile</li>
+          <li>Spia per ogni pompa</li>
+          <li>Display LCD opzionale</li>
+          <li>Morsetti certificati</li>
+          <li>Protezione IP55</li>
+          <li>VF. totale – Toshiba – Siemens</li>
+          <li>Alimentazione 400V Trifase</li>
+          <li>Siemens – Lovato – EL-MARK kW</li>
+        </ul>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     SEZIONE 4 – QUADRI GSM
+     ════════════════════════════════════ -->
+<div class="gsm-header">
+  <h2>Quadri di Comando – GSM<br/>Gestione <span>SMS / VOCALE / CLIP – BIDIREZIONALE</span></h2>
+  <div class="gsm-sub">"Comando remoto, controllo totale"</div>
+  <div class="volt">Alimentazione 230V <span>⚠️</span></div>
+  <p style="font-size:0.79rem; color:#acd; margin-top:6px;">
+    Affidabilità che dura, Tecnologia che protegge
+  </p>
+</div>
+
+<section class="products-section">
+  <div class="products-grid">
+
+    <!-- Card GSM 1 -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GSM 1.MF<br/>MONOFASE GSM 230V</h3>
+        <div class="code">Gestione Remota SMS / Vocale / Clip</div>
+      </div>
+      <div class="product-card-img">📱</div>
+      <div class="product-card-body">
+        <ul>
+          <li>Gestione tramite quadruplicato in SMS</li>
+          <li>Allarm / Notifiche SMS Vocali</li>
+          <li>Invio email allarme</li>
+          <li>N. utenti: 5 – numero massimo</li>
+          <li>Telecomando ON/OFF tramite SMS / Chiamata</li>
+          <li>Gestione livelli con sonde</li>
+          <li>Spia allarme SMS + vocale</li>
+          <li>Protezione IP55</li>
+          <li>Alimentazione 230V Monofase</li>
+          <li>Morsetti certificati</li>
+        </ul>
+        <p style="margin-top:10px; font-size:0.76rem; color:#888;">
+          E il suo Affidabilità:<br/>
+          Schneider Electric: 0.1 – 1.6 kW
+        </p>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+      </div>
+    </div>
+
+    <!-- Card GSM 2 -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>QTB-GSM 3.M<br/>TRIFASE GSM 400V</h3>
+        <div class="code">Gestione Remota Bidirezionale Trifase</div>
+      </div>
+      <div class="product-card-img">📡</div>
+      <div class="product-card-body">
+        <ul>
+          <li>Gestione remota SMS bidirezionale</li>
+          <li>Notifiche SMS / Vocali / Email</li>
+          <li>Telecomando ON/OFF pompe</li>
+          <li>N. utenti: 5 – numero massimo</li>
+          <li>Protezione mancanza fase</li>
+          <li>Protezione IP55</li>
+          <li>Alimentazione 400V Trifase</li>
+          <li>Contattore EL-Mark / Schneider</li>
+          <li>Relè termico regolabile</li>
+          <li>Display stato impianto</li>
+          <li>Morsetti certificati</li>
+        </ul>
+        <p style="margin-top:10px; font-size:0.76rem; color:#888;">
+          Il suo Affidabilità:<br/>
+          Schneider Electric + EL-MARK
+        </p>
+      </div>
+      <div class="product-card-footer">
+        <a href="#" class="btn-card">Scopri il Prodotto</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-section">
+  <ul>
+    <li>
+      <span class="faq-icon">✉️</span>
+      <span>Vuoi lavorare presso di noi o cerchi?</span>
+    </li>
+    <li>
+      <span class="faq-icon">📞</span>
+      <span>Vuoi maggiori informazioni sulle nostre soluzioni?</span>
+    </li>
+    <li>
+      <span class="faq-icon">📩</span>
+      <span>Hai bisogno di un preventivo o di altro tipo di assistenza?</span>
+    </li>
+  </ul>
+</section>
+
+<!-- ══ CTA / FORM ══ -->
+<section class="cta-banner">
+  <h2>Sei al azienda del Settore? Hai la partita IVA?<br/>Richiedici il preventivo del prodotto direttamente la azienda</h2>
+  <p style="margin-top:12px; font-size:0.82rem; color:#cde;">
+    Richiedi subito un preventivo gratuito. Compila il modulo sottostante e un nostro tecnico ti ricontatterà entro 24 ore.
+  </p>
+  <form style="margin-top:20px;">
+    <div class="form-inline">
+      <input type="text" placeholder="Nome *"/>
+      <input type="text" placeholder="Azienda *"/>
+      <input type="email" placeholder="E-mail *"/>
+      <input type="tel" placeholder="Telefono"/>
+      <textarea rows="4" placeholder="Messaggio *"></textarea>
+      <div class="privacy-row">
+        <input type="checkbox" id="priv"/>
+        <label for="priv">
+          Acconsento al trattamento dei miei dati personali da parte del proprietario di questo sito Web.
+          Il consenso è rilasciato su base volontaria.
+        </label>
+      </div>
+      <button type="submit" class="btn-submit">Invia Richiesta</button>
+    </div>
+  </form>
+  <p class="form-note">Vogliamo Difesa Tomato Alimentare</p>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="brands">
+    <span class="brand-badge">SIEMENS</span>
+    <span class="brand-badge">Schneider Electric</span>
+    <span class="brand-badge">ABB</span>
+    <span class="brand-badge">YASKAWA</span>
+    <span class="brand-badge">Lovato electric</span>
+    <span class="brand-badge">invt</span>
+  </div>
+  <p>
+    <strong>© Elettro G.A. Quadri Elettrici di A. Gianjero</strong><br/>
+    Trovato dalla Industria Turchese · Questione<br/><br/>
+    Progettazione e Programmazione PLC – HMI · Web Server Page Realizzazione<br/>
+    Costruzione e Assemblaggio · Quadri Elettrici<br/><br/>
+    Italia · Puglia · Bari · Poligono a mare 70041 · Largo Dino Giuseppe Puglia<br/>
+    Contatti Numero: Elettricità Alimentari<br/><br/>
+    Contatti Diretti<br/>
+    <a href="mailto:Elettrogaquadrielettrici@gmail.com" style="color:#5aaee8;">Elettrogaquadrielettrici@gmail.com</a>
+    · Email Amministrazione Segreteria:
+    <a href="mailto:Deleno.Ag@email.com" style="color:#5aaee8;">Deleno.Ag@email.com</a>
+  </p>
+  <div class="footer-chatbox">
+    <p>Scrivi qui la tua domanda…</p>
+    <input type="text" placeholder="Scrivi qui la tua domanda…"/>
+  </div>
+</footer>
+
+</body>
+</html>

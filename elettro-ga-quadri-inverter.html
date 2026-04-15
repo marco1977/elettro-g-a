@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elettro G.A. – Quadri Avviamento Inverter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark: #0a2a5e;
+      --blue-mid: #1155a0;
+      --blue-light: #2980d9;
+      --blue-sky: #5aaee8;
+      --accent: #f5a623;
+      --green: #27ae60;
+      --white: #ffffff;
+      --light-gray: #f4f6fa;
+      --text-dark: #1a1a2e;
+      --text-mid: #333;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--blue-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    nav .logo { font-family: 'Oswald', sans-serif; color: #fff; font-size: 1.1rem; font-weight: 700; }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    nav ul li a {
+      color: #cde; text-decoration: none; font-size: 0.70rem;
+      text-transform: uppercase; letter-spacing: .4px;
+      padding: 4px 8px; border-radius: 3px; transition: background .2s;
+    }
+    nav ul li a:hover, nav ul li a.active { background: var(--blue-mid); color: #fff; }
+    .subnav {
+      background: #0d1e40; text-align: center; padding: 6px 24px;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 4px;
+    }
+    .subnav a { color: #aac; text-decoration: none; font-size: 0.68rem; text-transform: uppercase; padding: 3px 8px; }
+    .subnav a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #050d1a 0%, #0a1f40 40%, #0d3060 100%);
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 36px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="none" stroke="rgba(0,150,255,0.08)" stroke-width="1"/></svg>') repeat;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--white);
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .hero-inverter {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      color: var(--blue-sky);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      position: relative;
+    }
+    .hero-inverter::after { content: ' ↗'; color: var(--accent); }
+
+    /* ── INTRO ── */
+    .intro-section { padding: 40px 50px; background: #fff; }
+    .intro-section h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue-mid);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+    .intro-section p { font-size: 0.86rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 10px; }
+    .intro-section ul { padding-left: 18px; font-size: 0.85rem; line-height: 2; color: var(--text-mid); }
+    .intro-section ul li strong { color: var(--blue-dark); }
+    .intro-section .note {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: #666;
+      border-top: 1px solid #dde;
+      padding-top: 12px;
+    }
+
+    /* ── PRODOTTO QTB-INV ── */
+    .prodotto-section {
+      background: var(--light-gray);
+      padding: 50px 50px;
+    }
+    .prodotto-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 36px;
+      max-width: 1000px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .prodotto-img {
+      background: linear-gradient(135deg, #b0c8e0, #7aabce);
+      border-radius: 6px;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5577aa;
+      font-style: italic;
+      font-size: 0.85rem;
+    }
+    .prodotto-info h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      color: var(--blue-dark);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .prodotto-info h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--blue-mid);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .prodotto-info h4::before { content: '⚙'; }
+    .prodotto-info ul { padding-left: 18px; font-size: 0.82rem; line-height: 2; color: var(--text-mid); margin-bottom: 18px; }
+    .prodotto-info ul li::marker { color: var(--blue-light); }
+
+    /* ── CARATTERISTICHE / COMPONENTI ── */
+    .caract-section {
+      background: #fff;
+      padding: 50px 50px;
+    }
+    .caract-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .caract-box h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--blue-mid);
+      padding: 8px 16px;
+      margin-bottom: 16px;
+      border-radius: 3px;
+    }
+    .caract-box h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .caract-box h4::before { content: '⚡'; font-size: 0.9rem; }
+    .caract-box ul { padding-left: 16px; font-size: 0.8rem; line-height: 2; color: var(--text-mid); }
+    .caract-box ul li strong { color: var(--blue-dark); }
+    .caract-footer {
+      margin-top: 24px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--light-gray);
+      border-radius: 6px;
+      padding: 16px 20px;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+    }
+    .caract-footer .icon { font-size: 1.8rem; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--blue-light);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-left: auto;
+      transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); }
+
+    /* ── COMPONENTI INDISPENSABILI ── */
+    .componenti-section {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 60%, var(--blue-sky) 100%);
+      padding: 50px 50px;
+    }
+    .componenti-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      letter-spacing: 3px;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .comp-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+      backdrop-filter: blur(4px);
+    }
+    .comp-card-img {
+      height: 100px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+    .comp-card-body { padding: 14px; }
+    .comp-card-body h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .comp-card-body ul {
+      list-style: disc;
+      padding-left: 14px;
+      font-size: 0.76rem;
+      line-height: 1.8;
+      color: #cde;
+    }
+
+    /* ── BRAND STRIP ── */
+    .brand-strip {
+      background: #fff;
+      padding: 20px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      border-top: 2px solid var(--light-gray);
+      border-bottom: 2px solid var(--light-gray);
+    }
+    .brand-strip .brand {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── TABELLA POTENZE ── */
+    .tabella-section {
+      background: var(--light-gray);
+      padding: 50px 50px;
+    }
+    .tabella-section .intro-note {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+    }
+    .tabella-section .intro-cta {
+      font-size: 0.84rem;
+      color: var(--blue-mid);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .tabella-section .cta-sub {
+      font-size: 0.8rem;
+      color: #667;
+      margin-bottom: 20px;
+    }
+    table.power-table {
+      width: 100%;
+      max-width: 860px;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    table.power-table thead {
+      background: var(--blue-mid);
+      color: #fff;
+    }
+    table.power-table thead th {
+      padding: 10px 12px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: left;
+    }
+    table.power-table tbody tr:nth-child(even) { background: var(--light-gray); }
+    table.power-table tbody td {
+      padding: 8px 12px;
+      color: var(--text-mid);
+      border-bottom: 1px solid #e0e8f5;
+    }
+    table.power-table tbody td:last-child {
+      color: var(--blue-mid);
+      font-weight: 600;
+    }
+    .made-in-italy {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--blue-dark);
+    }
+    .made-in-italy .flag { font-size: 1.4rem; }
+
+    /* ── VANTAGGI ── */
+    .vantaggi-section { background: #fff; padding: 50px 50px; }
+    .vantaggi-section h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 28px;
+    }
+    .vantaggio-item { margin-bottom: 20px; }
+    .vantaggio-item h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--blue-mid);
+      margin-bottom: 6px;
+    }
+    .vantaggio-item p { font-size: 0.83rem; line-height: 1.8; color: var(--text-mid); }
+
+    /* ── 3 COLONNE ICONE ── */
+    .tre-col-section {
+      background: var(--light-gray);
+      padding: 40px 50px;
+    }
+    .tre-col-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .tre-col-item .icon-circle {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+    .icon-blue { background: var(--blue-mid); }
+    .icon-green { background: var(--green); }
+    .icon-accent { background: var(--accent); }
+    .tre-col-item h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+    }
+    .tre-col-item p { font-size: 0.8rem; line-height: 1.7; color: var(--text-mid); }
+
+    /* ── CONTATTI FORM ── */
+    .form-section { background: #fff; padding: 50px 50px; }
+    .form-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      color: var(--blue-dark);
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 760px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 0.79rem; font-weight: 600; color: var(--blue-dark); }
+    .form-group input, .form-group textarea {
+      border: 1px solid #c0ccdd; border-radius: 4px;
+      padding: 8px 12px; font-size: 0.83rem;
+      background: var(--light-gray); resize: vertical;
+      transition: border .2s;
+    }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--blue-light); background: #fff; }
+    .form-full { grid-column: 1 / -1; }
+    .privacy-row {
+      grid-column: 1 / -1;
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.77rem; color: #555; line-height: 1.6;
+    }
+    .privacy-row input { margin-top: 3px; }
+    .btn-submit {
+      display: inline-block;
+      background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.88rem; letter-spacing: 2px;
+      text-transform: uppercase; padding: 10px 28px;
+      border: none; border-radius: 4px; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-submit:hover { background: var(--blue-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0f1e; color: #99aabb;
+      padding: 40px; text-align: center; font-size: 0.77rem; line-height: 2;
+    }
+    footer strong { color: #fff; }
+    .brands { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin: 18px 0; }
+    .brand-badge {
+      background: #fff; color: #333; font-weight: 700;
+      font-size: 0.77rem; padding: 6px 14px; border-radius: 3px; letter-spacing: 1px;
+    }
+    .footer-chatbox {
+      background: #111827; border-radius: 8px;
+      padding: 14px 20px; max-width: 280px;
+      margin: 20px auto 0; text-align: left;
+    }
+    .footer-chatbox p { font-size: 0.77rem; color: #99aabb; margin-bottom: 8px; }
+    .footer-chatbox input {
+      width: 100%; background: #1e293b;
+      border: 1px solid #334155; border-radius: 4px;
+      padding: 8px 12px; color: #cdd; font-size: 0.77rem;
+    }
+
+    @media (max-width: 700px) {
+      .prodotto-grid, .caract-grid, .comp-grid, .tre-col-grid, .form-grid { grid-template-columns: 1fr; }
+      nav ul { justify-content: center; }
+      section, .intro-section, .prodotto-section, .caract-section,
+      .componenti-section, .tabella-section, .vantaggi-section,
+      .tre-col-section, .form-section { padding: 36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="logo">⚡ <span>Elettro G.A.</span> Quadri Elettrici</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Azienda &amp; Contatti</a></li>
+    <li><a href="#">Quadri</a></li>
+    <li><a href="#">Elettropompe / Motore</a></li>
+    <li><a href="#" class="active">Quadro – Inverter</a></li>
+    <li><a href="#">Quadro – Soft Starter</a></li>
+  </ul>
+</nav>
+<div class="subnav">
+  <a href="#">Quadri – Prima Pioggia</a>
+  <a href="#">Quadri – Prima, Seconda Pioggia &amp; Riuso</a>
+  <a href="#">Rascivagni a più pulizia stelle</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <h1>QUADRI  AVVIAMENTO</h1>
+  <div class="hero-inverter">INVERTER</div>
+</header>
+
+<!-- ══ INTRO ══ -->
+<section class="intro-section">
+  <h2>Soluzioni per il Controllo di Elettropompe e Motori</h2>
+  <p>
+    La nostra esperienza e la preparazione ci selezionare tre standard eccellenza per offrire prodotti pronti all'uso,
+    configurati per garantire il miglior rapporto tra prestazioni, affidabilità e costi.
+  </p>
+  <p>I nostri Inverter sono disponibili in tre configurazioni principali:</p>
+  <ul>
+    <li><strong>Modello Standard Inverter YASKAWA</strong> (Efficienza e versatilità e Sicurezza)</li>
+    <li><strong>Modello Premium Inverter Schneider Electric ATV320</strong> (Integrazione e Controllo avanzato)</li>
+    <li><strong>Modello HMI Performance Inverter Toshiba VF-AS1</strong> (Monitoraggio e precisione plusprestazioni)</li>
+  </ul>
+  <p class="note">
+    Ogni quadro è pronto per l'installazione, ma è rete totalmente personalizzabile in base alle tue specifiche esigenze tecniche.
+  </p>
+</section>
+
+<!-- ══ PRODOTTO QTB-INV ══ -->
+<section class="prodotto-section">
+  <div class="prodotto-grid">
+    <div class="prodotto-img">[ Immagine quadro inverter ]</div>
+    <div class="prodotto-info">
+      <h3>QTB-INV</h3>
+      <h4>Descrizione Prodotto:</h4>
+      <ul>
+        <li>Quadro elettrico di comando e protezione con Inverter</li>
+        <li>Gestione e regolazione di velocità di Elettropompe</li>
+        <li>Protezione contro sovraccarichi e cortocircuiti</li>
+        <li>Avviamento Morbido Multiplo</li>
+        <li>Schermo grafico HMI PLC/ELMARK – Siface HMI</li>
+        <li>HMI Brand su schermo: Schneider – Toshiba</li>
+        <li>Toshiba/e, Lovato</li>
+        <li>Pronto a quadro con sistema di IoT – Wi-Fi</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CARATTERISTICHE / COMPONENTI ══ -->
+<section class="caract-section">
+  <div class="caract-grid">
+    <!-- CARATTERISTICHE -->
+    <div class="caract-box">
+      <h3>CARATTERISTICHE</h3>
+      <h4>Descrizione Tecnica</h4>
+      <ul>
+        <li>Carpenteria Metallica con profilo di protezione IP55</li>
+        <li>Isolamento portante con targa protezione funzione</li>
+        <li>Interruttori Magnetotermici coordinati, Fusibili, protezione</li>
+        <li>Selettore con Allarme: Emergenza, Start, Continuità, Stop</li>
+        <li>Allarme visivi luminosi</li>
+        <li>Predisposizione rele/fusibili IP</li>
+        <li>Pressione display luminosi e/o</li>
+        <li>Cablaggio a vista, Variabile a distanza</li>
+      </ul>
+    </div>
+    <!-- COMPONENTI -->
+    <div class="caract-box">
+      <h3>COMPONENTI</h3>
+      <h4>Su Richiesta</h4>
+      <ul>
+        <li>Componenti in 100 categoria di protezione IP55</li>
+        <li>Interruttori Magnetotermici in Temperatura (IP65)</li>
+        <li>Fusibili e Disconnettori IP ELMARK – Siface</li>
+        <li>Contattori di Core</li>
+        <li>Schermo da 7,5 a 10 HT per Trasduttore di Pressione</li>
+        <li>Display Power qualità HT (e HMI)</li>
+        <li>Inverter Toshiba</li>
+        <li>Assistenza di Rete</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caract-footer">
+    <div class="icon">📊</div>
+    <div>
+      <strong style="color:var(--blue-dark); display:block; margin-bottom:4px;">Scheda Tecnica</strong>
+      <span style="font-size:0.78rem; color:#667;">Scarica la documentazione completa del prodotto</span>
+    </div>
+    <a href="#" class="btn-primary">⬇ AG AREA &amp; PHB</a>
+  </div>
+</section>
+
+<!-- ══ COMPONENTI INDISPENSABILI ══ -->
+<section class="componenti-section">
+  <h2>Componenti indispensabili</h2>
+  <div class="comp-grid">
+
+    <div class="comp-card">
+      <div class="comp-card-img">🔌</div>
+      <div class="comp-card-body">
+        <h4>FORME VISUALIZZATORI<br/>INVERTER YASKAWA / DA 0,75 KW A 75 KW</h4>
+        <ul>
+          <li>Modello configurabile (4×G con LCD)</li>
+          <li>Inverter</li>
+          <li>Toshiba</li>
+          <li>Schneider</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-img">📡</div>
+      <div class="comp-card-body">
+        <h4>RELE CONTROLLO CLASSE<br/>ELETTRICA &amp; GAZ</h4>
+        <ul>
+          <li>Modello di portata e automazione</li>
+          <li>Yaskawa</li>
+          <li>Toshiba</li>
+          <li>Schneider</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-img">⚙️</div>
+      <div class="comp-card-body">
+        <h4>PRODUZIONE RICERCA<br/>E TECNOLOGIA</h4>
+        <ul>
+          <li>Sistema di posizia (e HMI)</li>
+          <li>Selettori di commutazione</li>
+          <li>Accessori</li>
+          <li>Prestazione Meccanica</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-img">🔧</div>
+      <div class="comp-card-body">
+        <h4>TRASFORMATORI DI MISURA<br/>E COMMERCIALI</h4>
+        <ul>
+          <li>Idonei</li>
+          <li>In caso di avarie se fanno restituire oppure<br/>riparare le basse tensioni</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-img">📟</div>
+      <div class="comp-card-body">
+        <h4>TELERUTTORI TELERUTTORI E PRODOTTI<br/>E PROTEZIONI TELERUTTORI</h4>
+        <ul>
+          <li>Modelli a 900 HT per automazione e la<br/>protezione del Motore limite e basse correnti di<br/>avviamento Fonte Bassa</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-card-img">🛡️</div>
+      <div class="comp-card-body">
+        <h4>PROTEZIONI SALVAMOTORE<br/>PLURI SIEMENS</h4>
+        <ul>
+          <li>Contattori Elettromeccanici</li>
+          <li>Interruttori Magnetotermici categoria A</li>
+          <li>senza necessità limite e la protezione basse correnti</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ BRAND STRIP ══ -->
+<div class="brand-strip">
+  <span class="brand">PIL2</span>
+  <span class="brand">ELMARK</span>
+  <span class="brand">OMRON</span>
+  <span class="brand">SENECA</span>
+  <span class="brand">TOSHIBA</span>
+</div>
+
+<!-- ══ TABELLA POTENZE ══ -->
+<section class="tabella-section">
+  <p class="intro-note">
+    Scetrare la potenza che ti serve? Se forse è la potenza che stai cercando, se non trovi lascia maggiori dettaglio in questo Riezo.
+  </p>
+  <p class="intro-cta">Contattaci direttamente! È possibile realizzare configurazioni personalizzate anche a potenze superiori alle e 75kW.</p>
+  <p class="cta-sub">Consulta anche la nostra selezione configurata personalizzata anche a potenze superiori.</p>
+
+  <table class="power-table">
+    <thead>
+      <tr>
+        <th>Potenza KW</th>
+        <th>Corrente A</th>
+        <th>Modello</th>
+        <th>Tensione V</th>
+        <th>Frequenza Hz</th>
+        <th>Dimensioni mm</th>
+        <th>Relativo KG</th>
+        <th>Disponibilità</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0,80 – 1,5</td><td>9,80 – 1,1</td><td>1,5</td><td>2,5</td><td>—</td><td>Piccolo</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>1,50 – 1,8</td><td>9,90 – 1,5</td><td>1,5</td><td>3,1</td><td>—</td><td>Piccolo</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>2,20 – 2,1</td><td>9,90 – 2,1</td><td>2,2</td><td>3,9</td><td>—</td><td>Medio</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>4,00 – 3,8</td><td>9,90 – 3,8</td><td>4,0</td><td>7,0</td><td>—</td><td>Medio</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>5,50 – 5,0</td><td>9,90 – 5,0</td><td>5,5</td><td>9,5</td><td>—</td><td>Medio</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>7,50 – 7,0</td><td>9,90 – 7,0</td><td>7,5</td><td>13,0</td><td>—</td><td>Medio</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>11,00 – 10,5</td><td>9,90 – 10,5</td><td>11,0</td><td>19,0</td><td>—</td><td>Grande</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>15,00 – 14,5</td><td>9,90 – 14,5</td><td>15,0</td><td>25,0</td><td>—</td><td>Grande</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>18,50 – 17</td><td>9,90 – 17</td><td>18,5</td><td>31,0</td><td>—</td><td>Grande</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>22,00 – 21</td><td>9,90 – 21</td><td>22,0</td><td>37,0</td><td>—</td><td>Grande</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>30,00 – 30</td><td>9,90 – 30</td><td>30,0</td><td>50,0</td><td>—</td><td>XL</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>37,00 – 37</td><td>9,90 – 37</td><td>37,0</td><td>62,0</td><td>—</td><td>XL</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>45,00 – 44</td><td>9,90 – 44</td><td>45,0</td><td>75,0</td><td>—</td><td>XL</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>55,00 – 54</td><td>9,90 – 54</td><td>55,0</td><td>90,0</td><td>—</td><td>XL</td><td>Disponibile</td><td>Pronto</td></tr>
+      <tr><td>75,00 – 73</td><td>9,90 – 73</td><td>75,0</td><td>124,0</td><td>—</td><td>XXL</td><td>Disponibile</td><td>Pronto</td></tr>
+    </tbody>
+  </table>
+
+  <div class="made-in-italy">
+    <span class="flag">🇮🇹</span>
+    <span>MADE IN ITALY</span>
+  </div>
+</section>
+
+<!-- ══ VANTAGGI ══ -->
+<section class="vantaggi-section">
+  <h2>I Vantaggi Chiave | Perché acquistarlo?</h2>
+
+  <div class="vantaggio-item">
+    <h4>Risparmio Energetico Immediato (Fino al 40%):</h4>
+    <p>
+      L'aziot utilizza a inverter il motore, il motore gira sempre al massimo se non serve.
+      Regolando la frequenza (0,75 a 1) in base al carico bisogno, si abbatte direttamente ai consumo in bolletta, migliorando la pompe e condizioni e metabori.
+    </p>
+  </div>
+
+  <div class="vantaggio-item">
+    <h4>Addio agli sforzi e Stress Meccanico:</h4>
+    <p>
+      Consomocomo e forte e programmazione (pompa di 10 iserwell) per espressione.
+      Allunga la vita delle macchine che sempogniere: Riduce all'avviamento del Motore limite bassa e sostituì NabMol Tasso Avviamento.
+    </p>
+  </div>
+
+  <div class="vantaggio-item">
+    <h4>Doppio Modalità di Controllo (Manuale &amp; Automatico):</h4>
+    <p>
+      Massima flessibilità della gestione. Modalità e Adattamento con tutti i sistemi e pausa ogni alla cellulare prefabbricato.
+      Modulate che integrazione che in alle configurazione dati e comunicazione e pausa ogni alla cellulare prodotto.
+    </p>
+  </div>
+
+  <div class="vantaggio-item">
+    <h4>Veloce e Certificata:</h4>
+    <p>
+      Prodotta secondo le normative Caleste e 10% t. Articulati fungo di emergenza, blocco sulla protezione
+      e terminati in Siparce (300) Quad Elettrici per garantire i sistemi sicuri generali.
+    </p>
+  </div>
+
+  <div class="vantaggio-item">
+    <h4>Plug &amp; Play (Pronto all'uso):</h4>
+    <p>
+      Il quadro viene già precalcolato solo calcolare e collaudato. Pasta categoria la box (ADN 70×40) di 4 moduli.
+      Nessuna programmazione richiesta: connessa la nella stessa elettrica, affidata e quattro.
+    </p>
+  </div>
+
+  <div class="vantaggio-item">
+    <h4>Applicazioni Ideali (per Impianto):</h4>
+    <p>
+      Ogni quadro controllo Quadro (e/o) ogni ad <strong>Elettropompe</strong>. Testa categoria la parete per ogni acquari,
+      Impianto di pompaggio con pompa di 4kW (e Alimentazione). Impianto di Pompa distribuita acqua · rifuse · vanifagi.
+      Mantiene la pressione costante in attesa di qualunque avvenimento. Richiesta e attesa ad attesa.
+      Quadro risparmio (acquato) per non metodo, analisi e pieno scarico.
+      Quadri normali per controllo della velocità di misurazione: – compressore (sola).
+    </p>
+  </div>
+
+  <div class="vantaggio-item">
+    <h4>Trattamento Aria (HVAC):</h4>
+    <p>
+      Si richiede quadro Inverter per <strong>Elettropompe</strong>. Testa categoria la parete per ogni aspetti,
+      Quadri normali per controllo della velocità di misurazione · Compressore – Dante.
+    </p>
+  </div>
+</section>
+
+<!-- ══ TRE COLONNE ICONE ══ -->
+<section class="tre-col-section">
+  <div class="tre-col-grid">
+    <div class="tre-col-item">
+      <div class="icon-circle icon-blue">🏭</div>
+      <h4>Produttore</h4>
+      <p>Realizziamo direttamente i nostri Quadri senza intermediari, abbattendo il costo del quadro in meno di 12 mesi!</p>
+    </div>
+    <div class="tre-col-item">
+      <div class="icon-circle icon-green">💰</div>
+      <h4>Investi e Risparmia</h4>
+      <p>Realizziamo direttamente i nostri Quadri senza intermediari, abbattendo il costo del quadro in meno di 12 mesi!</p>
+    </div>
+    <div class="tre-col-item">
+      <div class="icon-circle icon-accent">🛡️</div>
+      <h4>Assistenza</h4>
+      <p>Assistenza tecnica dedicata su tutti i prodotti installati. Siamo al tuo fianco sempre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTATTACI FORM ══ -->
+<section class="form-section">
+  <h2>Contattaci</h2>
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text"/>
+    </div>
+    <div class="form-group">
+      <label>Azienda *</label>
+      <input type="text"/>
+    </div>
+    <div class="form-group form-full">
+      <label>Messaggio *</label>
+      <textarea rows="5"></textarea>
+    </div>
+    <div class="privacy-row">
+      <input type="checkbox" id="priv"/>
+      <label for="priv">
+        Acconsento al trattamento dei miei dati personali da parte del proprietario di questo sito Web. Il consenso è rilasciato su base volontaria e posso revocarlo in ogni momento al TSW.
+      </label>
+    </div>
+    <div style="grid-column:1/-1; display:flex; justify-content:flex-end;">
+      <button class="btn-submit">Invia</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="brands">
+    <span class="brand-badge">SIEMENS</span>
+    <span class="brand-badge">Schneider Electric</span>
+    <span class="brand-badge">ABB</span>
+    <span class="brand-badge">YASKAWA</span>
+    <span class="brand-badge">Lovato electric</span>
+    <span class="brand-badge">invt</span>
+  </div>
+  <p>
+    <strong>© Elettro G.A. Quadri Elettrici di A. Gianjero</strong><br/>
+    Trovato dalla Industria Turchese · Questione<br/><br/>
+    Progettazione e Programmazione PLC – HMI · Web Server Page Realizzazione<br/>
+    Costruzione e Assemblaggio · Quadri Elettrici<br/><br/>
+    Italia · Puglia · Bari · Poligono a mare 70041 · Largo Dino Giuseppe Puglia<br/>
+    Contatti Numero: Elettricità Alimentari<br/><br/>
+    Contatti Diretti<br/>
+    <a href="mailto:Elettrogaquadrielettrici@gmail.com" style="color:#5aaee8;">Elettrogaquadrielettrici@gmail.com</a>
+    · Email Amministrazione Segreteria:
+    <a href="mailto:Deleno.Ag@email.com" style="color:#5aaee8;">Deleno.Ag@email.com</a>
+  </p>
+  <div class="footer-chatbox">
+    <p>Scrivi qui la tua domanda…</p>
+    <input type="text" placeholder="Scrivi qui la tua domanda…"/>
+  </div>
+</footer>
+
+</body>
+</html>

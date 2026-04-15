@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elettro G.A. – Quadri Avviamento Soft Starter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark: #0a2a5e;
+      --blue-mid: #1155a0;
+      --blue-light: #2980d9;
+      --blue-sky: #5aaee8;
+      --accent: #f5a623;
+      --green: #27ae60;
+      --white: #ffffff;
+      --light-gray: #f4f6fa;
+      --text-dark: #1a1a2e;
+      --text-mid: #333;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--blue-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px; flex-wrap: wrap; gap: 8px;
+    }
+    nav .logo { font-family: 'Oswald', sans-serif; color: #fff; font-size: 1.1rem; font-weight: 700; }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    nav ul li a {
+      color: #cde; text-decoration: none; font-size: 0.69rem;
+      text-transform: uppercase; letter-spacing: .4px;
+      padding: 4px 8px; border-radius: 3px; transition: background .2s;
+    }
+    nav ul li a:hover, nav ul li a.active { background: var(--blue-mid); color: #fff; }
+    .subnav {
+      background: #0d1e40; text-align: center; padding: 6px 24px;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 4px;
+    }
+    .subnav a { color: #aac; text-decoration: none; font-size: 0.67rem; text-transform: uppercase; padding: 3px 8px; }
+    .subnav a:hover, .subnav a.active { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #050d1a 0%, #0a1f40 40%, #0d3060 100%);
+      min-height: 200px;
+      display: flex; flex-direction: column;
+      justify-content: center; padding: 40px 50px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="none" stroke="rgba(0,150,255,0.07)" stroke-width="1"/></svg>') repeat;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      color: var(--white); letter-spacing: 8px;
+      text-transform: uppercase; position: relative;
+    }
+    .hero h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      color: var(--blue-sky); letter-spacing: 6px;
+      text-transform: uppercase; margin-top: 6px; position: relative;
+    }
+    .hero h2::after { content: ' ↗'; color: var(--accent); font-size: 1.4rem; }
+
+    /* ── INTRO ── */
+    .intro-section { padding: 36px 50px; background: #fff; }
+    .intro-section p { font-size: 0.86rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 10px; }
+    .intro-section p strong { color: var(--blue-dark); }
+    .intro-section .config-line {
+      margin-top: 14px; font-size: 0.83rem;
+      color: var(--blue-mid); font-weight: 600;
+    }
+
+    /* ── MODELLO BLOCK ── */
+    .modello-block {
+      padding: 50px 50px;
+    }
+    .modello-block.alt { background: var(--light-gray); }
+    .modello-block.white { background: #fff; }
+
+    .modello-label {
+      text-align: center; margin-bottom: 28px;
+    }
+    .modello-label .pre {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem; color: #667;
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+    .modello-label h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem; color: var(--blue-dark);
+      letter-spacing: 4px;
+    }
+    .modello-label h2 span { color: var(--blue-mid); }
+
+    .modello-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 36px; max-width: 1000px; margin: 0 auto;
+      align-items: start;
+    }
+    .modello-img {
+      background: linear-gradient(135deg, #b0c8e0, #7090b0);
+      border-radius: 8px; min-height: 300px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .modello-info h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 16px;
+    }
+    .modello-info h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.86rem; font-weight: 700;
+      color: var(--blue-mid); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .modello-info h4::before { content: '⚙'; }
+    .modello-info ul {
+      padding-left: 16px; font-size: 0.8rem;
+      line-height: 2; color: var(--text-mid);
+    }
+    .modello-info ul li::marker { color: var(--blue-light); }
+    .modello-info ul li strong { color: var(--blue-dark); }
+
+    /* ── CARACT / COMPONENTI ── */
+    .caract-comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px; max-width: 1000px;
+      margin: 30px auto 0;
+    }
+    .cc-box h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--white);
+      background: var(--blue-mid); padding: 8px 16px;
+      border-radius: 3px; margin-bottom: 14px;
+    }
+    .cc-box h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.84rem; font-weight: 700;
+      color: var(--blue-dark); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .cc-box h4::before { content: '⚡'; }
+    .cc-box ul {
+      padding-left: 14px; font-size: 0.79rem;
+      line-height: 2; color: var(--text-mid);
+    }
+    .cc-box ul li strong { color: var(--blue-dark); }
+
+    /* ── DOWNLOAD ROW ── */
+    .download-row {
+      max-width: 1000px; margin: 24px auto 0;
+      display: flex; align-items: center;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .download-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--light-gray); border-radius: 6px;
+      padding: 12px 18px;
+    }
+    .download-box .icon { font-size: 1.6rem; }
+    .download-box p { font-size: 0.75rem; color: #667; line-height: 1.5; }
+    .download-box p strong { color: var(--blue-dark); display: block; }
+    .btn-dl {
+      display: inline-block;
+      background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem; letter-spacing: 1px;
+      text-transform: uppercase; padding: 9px 20px;
+      border-radius: 4px; text-decoration: none;
+      margin-left: auto;
+    }
+    .btn-dl:hover { background: var(--blue-dark); }
+
+    /* ── SEPARATOR ── */
+    .sep {
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue-sky), var(--blue-dark));
+    }
+
+    /* ── COMPONENTI UTILI ── */
+    .utili-section {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 60%, var(--blue-sky) 100%);
+      padding: 50px 50px;
+    }
+    .utili-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem; color: var(--white);
+      letter-spacing: 3px; text-align: center;
+      margin-bottom: 36px;
+    }
+    .utili-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px; max-width: 1000px; margin: 0 auto;
+    }
+    .utile-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px; overflow: hidden;
+      backdrop-filter: blur(4px);
+    }
+    .utile-card-header {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .utile-card-header h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem; color: var(--accent);
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .utile-card-img {
+      height: 90px;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+    }
+    .utile-card-body { padding: 12px 14px; }
+    .utile-card-body ul {
+      list-style: disc; padding-left: 14px;
+      font-size: 0.75rem; line-height: 1.9; color: #cde;
+    }
+
+    /* ── BRAND STRIP ── */
+    .brand-strip {
+      background: #fff; padding: 18px 50px;
+      display: flex; align-items: center;
+      justify-content: center; flex-wrap: wrap; gap: 28px;
+      border-top: 2px solid var(--light-gray);
+      border-bottom: 2px solid var(--light-gray);
+    }
+    .brand-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--blue-dark); letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── TABELLA POTENZE ── */
+    .tabella-section {
+      background: var(--light-gray); padding: 50px 50px;
+    }
+    .tabella-section .note {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.84rem; font-style: italic;
+      color: var(--text-mid); margin-bottom: 6px;
+    }
+    .tabella-section .cta {
+      font-size: 0.83rem; color: var(--blue-mid);
+      font-weight: 600; margin-bottom: 20px;
+    }
+    .tabella-grid {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 30px; max-width: 1000px; align-items: start;
+    }
+    table.soft-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 0.77rem; background: #fff;
+      border-radius: 6px; overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    table.soft-table thead {
+      background: var(--blue-mid); color: #fff;
+    }
+    table.soft-table thead th {
+      padding: 9px 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem; letter-spacing: 1px;
+      text-align: left;
+    }
+    table.soft-table tbody tr:nth-child(even) { background: var(--light-gray); }
+    table.soft-table tbody td {
+      padding: 7px 10px; color: var(--text-mid);
+      border-bottom: 1px solid #e0e8f5;
+    }
+    table.soft-table tbody td:last-child { color: var(--blue-mid); font-weight: 600; }
+    .made-box {
+      background: #fff; border-radius: 8px;
+      padding: 24px; text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .made-box .flag { font-size: 2.5rem; margin-bottom: 8px; }
+    .made-box p {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem; letter-spacing: 2px;
+      color: var(--blue-dark); text-transform: uppercase;
+    }
+
+    /* ── VANTAGGI ── */
+    .vantaggi-section { background: #fff; padding: 50px 50px; }
+    .vantaggi-section h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--blue-dark); margin-bottom: 28px;
+    }
+    .vantaggio { margin-bottom: 18px; }
+    .vantaggio h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.87rem; font-weight: 700;
+      color: var(--blue-mid); margin-bottom: 5px;
+    }
+    .vantaggio p { font-size: 0.82rem; line-height: 1.8; color: var(--text-mid); }
+
+    /* ── TRE COLONNE ── */
+    .tre-col-section { background: var(--light-gray); padding: 40px 50px; }
+    .tre-col-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; max-width: 860px; margin: 0 auto; text-align: center;
+    }
+    .tre-item .icon-circle {
+      width: 70px; height: 70px; border-radius: 50%;
+      margin: 0 auto 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+    }
+    .ic-blue { background: var(--blue-mid); }
+    .ic-teal { background: #16a085; }
+    .ic-green { background: var(--green); }
+    .tre-item h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.87rem; font-weight: 700;
+      color: var(--blue-dark); margin-bottom: 8px;
+    }
+    .tre-item p { font-size: 0.8rem; line-height: 1.7; color: var(--text-mid); }
+
+    /* ── FORM ── */
+    .form-section { background: #fff; padding: 50px 50px; }
+    .form-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 24px;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 760px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 0.79rem; font-weight: 600; color: var(--blue-dark); }
+    .form-group input, .form-group textarea {
+      border: 1px solid #c0ccdd; border-radius: 4px;
+      padding: 8px 12px; font-size: 0.82rem;
+      background: var(--light-gray); resize: vertical;
+    }
+    .form-full { grid-column: 1 / -1; }
+    .privacy-row {
+      grid-column: 1 / -1;
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.76rem; color: #555; line-height: 1.6;
+    }
+    .btn-submit {
+      display: inline-block;
+      background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.88rem; letter-spacing: 2px;
+      text-transform: uppercase; padding: 10px 28px;
+      border: none; border-radius: 4px; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-submit:hover { background: var(--blue-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0f1e; color: #99aabb;
+      padding: 40px; text-align: center; font-size: 0.77rem; line-height: 2;
+    }
+    footer strong { color: #fff; }
+    .brands { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin: 18px 0; }
+    .brand-badge {
+      background: #fff; color: #333; font-weight: 700;
+      font-size: 0.76rem; padding: 6px 14px; border-radius: 3px; letter-spacing: 1px;
+    }
+    .footer-chatbox {
+      background: #111827; border-radius: 8px;
+      padding: 14px 20px; max-width: 280px;
+      margin: 20px auto 0; text-align: left;
+    }
+    .footer-chatbox p { font-size: 0.77rem; color: #99aabb; margin-bottom: 8px; }
+    .footer-chatbox input {
+      width: 100%; background: #1e293b;
+      border: 1px solid #334155; border-radius: 4px;
+      padding: 8px 12px; color: #cdd; font-size: 0.77rem;
+    }
+
+    @media (max-width: 800px) {
+      .modello-grid, .caract-comp-grid, .utili-grid,
+      .tabella-grid, .tre-col-grid, .form-grid { grid-template-columns: 1fr; }
+      nav ul { justify-content: center; }
+      .intro-section, .modello-block, .utili-section,
+      .tabella-section, .vantaggi-section, .tre-col-section, .form-section { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="logo">⚡ <span>Elettro G.A.</span> Quadri Elettrici</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Azienda &amp; Contatti</a></li>
+    <li><a href="#">Quadri</a></li>
+    <li><a href="#">Elettropompe / Motore</a></li>
+    <li><a href="#">Quadro – Inverter</a></li>
+    <li><a href="#" class="active">Quadro – Soft Starter</a></li>
+  </ul>
+</nav>
+<div class="subnav">
+  <a href="#">Quadri – Prima Pioggia</a>
+  <a href="#">Quadri – Prima, Seconda Pioggia &amp; Riuso</a>
+  <a href="#">Rascivagni a Fune Pulizia Stalle</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <h1>QUADRI  AVVIAMENTO</h1>
+  <h2>SOFT STERTER</h2>
+</header>
+
+<!-- ══ INTRO ══ -->
+<section class="intro-section">
+  <p>
+    La nostra esperienza e la nostra competenza ci dai <strong>standard eccellenza</strong>.
+  </p>
+  <p>
+    <strong>Configurazione Standard: Siemens – ABB</strong><br/>
+    Ogni quadro è pronto per il monitoraggio, ottimizzato dalla vita per efficacit all'acquisto della componentistica.
+    Ogni quadro viene sempre installato completamente prima di essere consegnato ed è pronto all'uso.
+  </p>
+  <p class="config-line">
+    Configurazione Standard Siemens – <strong>ABB</strong>
+  </p>
+</section>
+
+<!-- ════════════════════════════
+     MODELLO SIEMENS – QTR-S.START 1
+     ════════════════════════════ -->
+<div class="sep"></div>
+
+<section class="modello-block white">
+  <div class="modello-label">
+    <div class="pre">Modello</div>
+    <h2><span>SIEMENS</span></h2>
+    <div style="font-size:0.8rem; color:#667; font-style:italic; margin-top:4px;">Superiore da 55 ÷ 18</div>
+  </div>
+
+  <div class="modello-grid">
+    <div class="modello-img">⚡</div>
+    <div class="modello-info">
+      <h3>QTR-S.START 1</h3>
+      <h4>Descrizione Prodotto:</h4>
+      <ul>
+        <li>Avvio dolce dell'avviamento e protezione con Soft</li>
+        <li>Riduce la corrente di avviamento di motori e Elettropompe</li>
+        <li>A versione SMS</li>
+        <li>HMI Display Siemens 0+10 (da Micro Siemens)</li>
+        <li>HMI Display Siemens Tipo: Siface Mini – 4,3"</li>
+        <li>Motorino al quadro da rel. 617 75kW</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caract-comp-grid">
+    <div class="cc-box">
+      <h3>CARATTERISTICHE</h3>
+      <h4>Descrizione Tecnica</h4>
+      <ul>
+        <li>Carpenteria Acciaio con profilo di protezione IP55</li>
+        <li>Isolamento portante con targa funzionale</li>
+        <li>Interruttori Magnetotermici coordinati e Fusibili</li>
+        <li>Selettori con Allarme: Emergenza, Start</li>
+        <li>Allarmi visivi luminosi</li>
+        <li>Predisposizione relè/fusibili IP</li>
+        <li>Protezione interna termica</li>
+        <li>Emergenza e Allarme</li>
+      </ul>
+    </div>
+    <div class="cc-box">
+      <h3>COMPONENTI</h3>
+      <h4>Su Richiesta</h4>
+      <ul>
+        <li>Componenti in 100 categoria di protezione IP55</li>
+        <li>Componenti in 100 categoria con protezione categoria IP65</li>
+        <li>Fusibili e Disconnettori IP</li>
+        <li>Contattore di Cavo</li>
+        <li>Trasfo Micro da 400V ambiente</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="download-row">
+    <div class="download-box">
+      <div class="icon">📄</div>
+      <p><strong>DOWNLOAD</strong>Scheda Tecnica<br/>Quadro Elettrico</p>
+    </div>
+    <a href="#" class="btn-dl">⬇ AG AREA &amp; PBH</a>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════
+     MODELLO ABB – QTR-S.START 2
+     ════════════════════════════ -->
+<section class="modello-block alt">
+  <div class="modello-label">
+    <div class="pre">Modello</div>
+    <h2><span>ABB</span></h2>
+  </div>
+
+  <div class="modello-grid">
+    <div class="modello-img" style="background: linear-gradient(135deg, #c0c8d8, #9098b0);">⚡</div>
+    <div class="modello-info">
+      <h3>QTR-S.START 2</h3>
+      <h4>Descrizione Prodotto:</h4>
+      <ul>
+        <li>Avvio dolce dell'avviamento con protezione con Soft</li>
+        <li>Riduce la corrente di avviamento di motori e all'Elettropompe</li>
+        <li>Soft Start integrato</li>
+        <li>HMI Display ABB 0+10</li>
+        <li>HMI Display ABB Tipo: Ultra Mini 640 Panneggio</li>
+        <li>HMI interfaccia – Siemens 24V</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caract-comp-grid">
+    <div class="cc-box">
+      <h3>CARATTERISTICHE</h3>
+      <h4>Descrizione Tecnica</h4>
+      <ul>
+        <li>Carpenteria Acciaio con profilo di protezione IP55</li>
+        <li>Isolamento portante con targa funzionale</li>
+        <li>Interruttori Magnetotermici coordinati</li>
+        <li>Stabilizzazione graduata, flessibilità graduata</li>
+        <li>Protezione e Allarme</li>
+        <li>Protezione Teleservizio, Doppie Modalità Gestioni</li>
+        <li>Richiesta di Eliminazione e</li>
+        <li>Protezione el'ufficio Tecnica</li>
+      </ul>
+    </div>
+    <div class="cc-box">
+      <h3>COMPONENTI</h3>
+      <h4>Su Richiesta</h4>
+      <ul>
+        <li>Componenti in 100 categoria di protezione IP55</li>
+        <li>Componenti in 100 categoria con protezione categoria IP65</li>
+        <li>Fusibili e Disconnettori IP</li>
+        <li>Contattore di Cavo</li>
+        <li>Trasfo Micro da 400V ambiente</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="download-row">
+    <div class="download-box">
+      <div class="icon">📄</div>
+      <p><strong>DOWNLOAD</strong>Scheda Tecnica<br/>Quadro Elettrico</p>
+    </div>
+    <a href="#" class="btn-dl">⬇ AG AREA &amp; PBH</a>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ══ COMPONENTI UTILI ══ -->
+<section class="utili-section">
+  <h2>Componenti Utili</h2>
+  <div class="utili-grid">
+
+    <div class="utile-card">
+      <div class="utile-card-header">
+        <h4>SOFT STARTER SIEMENS<br/>DA 11 KW A 160 KW</h4>
+      </div>
+      <div class="utile-card-img">🔌</div>
+      <div class="utile-card-body">
+        <ul>
+          <li>Disponibilità configurazione totale</li>
+          <li>Siemens</li>
+          <li>Qualità</li>
+          <li>Protezione avanzata</li>
+          <li>La protezione configurabile la totale totale</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="utile-card">
+      <div class="utile-card-header">
+        <h4>RELE CONTROLLO CLASSE<br/>ALIMENTAZIONE &amp; GAZ</h4>
+      </div>
+      <div class="utile-card-img">📡</div>
+      <div class="utile-card-body">
+        <ul>
+          <li>Contattori di fase</li>
+          <li>Contattori</li>
+          <li>Temporizzatori</li>
+          <li>Selezione manuale automatica</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="utile-card">
+      <div class="utile-card-header">
+        <h4>PRODUZIONE RICERCA<br/>E TECNOLOGIA INSTALLABILE</h4>
+      </div>
+      <div class="utile-card-img">⚙️</div>
+      <div class="utile-card-body">
+        <ul>
+          <li>Sistema di posizione (e HMI)</li>
+          <li>Selezione automatica</li>
+          <li>Accessori</li>
+          <li>Prestazione Meccanica</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="utile-card">
+      <div class="utile-card-header">
+        <h4>SOFT STARTER ABB<br/>DA 11 KW A 160 KW</h4>
+      </div>
+      <div class="utile-card-img">🔌</div>
+      <div class="utile-card-body">
+        <ul>
+          <li>Avvio graduato</li>
+          <li>Protezione anticavitazione</li>
+          <li>ABB, serie PSR / PSE / PSTX</li>
+          <li>Integrazione Soft Start diretta</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="utile-card">
+      <div class="utile-card-header">
+        <h4>RELE CONTROLLO PRODOTTI<br/>E PROTEZIONI TELERUTTORI</h4>
+      </div>
+      <div class="utile-card-img">📟</div>
+      <div class="utile-card-body">
+        <ul>
+          <li>Relè termici con compensazione</li>
+          <li>Classe 10 / Classe 20</li>
+          <li>Interruttori Magnetotermici</li>
+          <li>Teleruttori certificati</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="utile-card">
+      <div class="utile-card-header">
+        <h4>PROTEZIONI SALVAMOTORE<br/>PLURI SIEMENS</h4>
+      </div>
+      <div class="utile-card-img">🛡️</div>
+      <div class="utile-card-body">
+        <ul>
+          <li>Contattori Elettromeccanici</li>
+          <li>Interruttori Magnetotermici A</li>
+          <li>Senza necessità limite basse correnti</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ BRAND STRIP ══ -->
+<div class="brand-strip">
+  <span class="brand-name">PIL2</span>
+  <span class="brand-name">ELMARK</span>
+  <span class="brand-name">OMRON</span>
+  <span class="brand-name">SENECA</span>
+  <span class="brand-name">TOSHIBA</span>
+</div>
+
+<!-- ══ TABELLA POTENZE ══ -->
+<section class="tabella-section">
+  <p class="note">
+    Scetrare la potenza che ti serve? Se forse è la potenza che stai cercando, se non trovi lascia maggiori dettagli in questa Riezo.
+  </p>
+  <p class="cta">
+    È possibile formare configurazioni personalizzate anche a potenze superiori alle e 75kW.
+  </p>
+
+  <div class="tabella-grid">
+    <table class="soft-table">
+      <thead>
+        <tr>
+          <th>Potenza KW</th>
+          <th>Corrente A</th>
+          <th>Modello</th>
+          <th>Tensione V</th>
+          <th>Freq. Hz</th>
+          <th>Dimensioni</th>
+          <th>KG</th>
+          <th>Disponibilità</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>11 kW</td><td>22 A</td><td>S.START 1</td><td>400V</td><td>50Hz</td><td>Medio</td><td>14</td><td>Pronto</td></tr>
+        <tr><td>15 kW</td><td>30 A</td><td>S.START 1</td><td>400V</td><td>50Hz</td><td>Medio</td><td>15</td><td>Pronto</td></tr>
+        <tr><td>18,5 kW</td><td>37 A</td><td>S.START 1</td><td>400V</td><td>50Hz</td><td>Medio</td><td>16</td><td>Pronto</td></tr>
+        <tr><td>22 kW</td><td>44 A</td><td>S.START 1</td><td>400V</td><td>50Hz</td><td>Grande</td><td>18</td><td>Pronto</td></tr>
+        <tr><td>30 kW</td><td>60 A</td><td>S.START 1</td><td>400V</td><td>50Hz</td><td>Grande</td><td>20</td><td>Pronto</td></tr>
+        <tr><td>37 kW</td><td>74 A</td><td>S.START 2</td><td>400V</td><td>50Hz</td><td>Grande</td><td>22</td><td>Pronto</td></tr>
+        <tr><td>45 kW</td><td>90 A</td><td>S.START 2</td><td>400V</td><td>50Hz</td><td>XL</td><td>25</td><td>Pronto</td></tr>
+        <tr><td>55 kW</td><td>110 A</td><td>S.START 2</td><td>400V</td><td>50Hz</td><td>XL</td><td>28</td><td>Pronto</td></tr>
+        <tr><td>75 kW</td><td>150 A</td><td>S.START 2</td><td>400V</td><td>50Hz</td><td>XL</td><td>32</td><td>Pronto</td></tr>
+        <tr><td>90 kW</td><td>180 A</td><td>S.START 2</td><td>400V</td><td>50Hz</td><td>XXL</td><td>38</td><td>Su richiesta</td></tr>
+        <tr><td>110 kW</td><td>220 A</td><td>S.START 2</td><td>400V</td><td>50Hz</td><td>XXL</td><td>44</td><td>Su richiesta</td></tr>
+        <tr><td>132 kW</td><td>264 A</td><td>S.START 2</td><td>400V</td><td>50Hz</td><td>XXL</td><td>50</td><td>Su richiesta</td></tr>
+        <tr><td>160 kW</td><td>320 A</td><td>S.START 2</td><td>400V</td><td>50Hz</td><td>XXL</td><td>58</td><td>Su richiesta</td></tr>
+      </tbody>
+    </table>
+
+    <div class="made-box">
+      <div class="flag">🇮🇹</div>
+      <p>MADE IN ITALY</p>
+      <div style="margin-top:16px; font-size:0.75rem; color:#667; line-height:1.7;">
+        Tutti i quadri vengono prodotti e collaudati interamente nel nostro laboratorio artigianale in Puglia.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VANTAGGI ══ -->
+<section class="vantaggi-section">
+  <h2>3 Vantaggi Chiave | Perché il Soft Starter?</h2>
+
+  <div class="vantaggio">
+    <h4>Addio Picchi di Corrente:</h4>
+    <p>
+      Rileva il corrente di sp 40%. L'avvio dolce tecnologie genera in modo graduale e in modo dell'avvio nel corrente sistema
+      senza la corrente di tensione Tipica.
+    </p>
+  </div>
+
+  <div class="vantaggio">
+    <h4>Stop e Ciclo Dolce e Sicuro:</h4>
+    <p>
+      Gestione veloce di facilità e rallentamento delle funzionalità: fermare d'ame nelle correnti e rallentamento in un affidamento
+      di condotti sicuro per i all'avvio in uscita.
+    </p>
+  </div>
+
+  <div class="vantaggio">
+    <h4>Riduzione dello Sforzo Triangolo:</h4>
+    <p>
+      È il controllo di una tecnologia di Siemens. Quello con a controllo di termica o 10A, dovuto fungo di emergenza, blocco sulla protezione
+      e terminata in Siparce (300) Quad per la garanzia in sistemi sicuri generali.
+    </p>
+  </div>
+
+  <div class="vantaggio">
+    <h4>Risparmio Integrato e Stabile:</h4>
+    <p>
+      Una all'avvio a Sonda e 5 a 6 A tornar tornar variabile i direttamente in elettronica Ricevuti. Dotabile per la paura i paura,
+      Nessuna programmazione successiva richiesta con il nello stessa in uscita nuova, affidata a quattro.
+    </p>
+  </div>
+
+  <div class="vantaggio">
+    <h4>Plug &amp; Play Stabile:</h4>
+    <p>
+      Il quadro viene già precalcolato solo calcolare e collaudato. Basta collegare la 230V o 400V e innestare. Nessuna programmazione
+      successiva richiesta: connessa la nella stessa.
+    </p>
+  </div>
+
+  <div class="vantaggio">
+    <h4>Applicazioni Ideali (Zone Installate):</h4>
+    <p>
+      Pronto per ogni applicazione e adatto usandola come dotare ad ogni allineamento.
+      Gestione dei HMCC: ganar la miseria su ognuno di tali vantaggio. Impianto di Pompa struttura connesse e segno connesse e
+      un segnale di tutto al segnale. Raffreddamento in architettura (energia e aggiunta) e l'aspetti di tutti del Impianto di Pompa.
+      <strong>Meccanica e Produzione:</strong> Nessuna trasportare conviene stessa tutto le azione e cadere e calcolare, poi impostare in testa massimo e insieme.
+    </p>
+  </div>
+</section>
+
+<!-- ══ TRE COLONNE ══ -->
+<section class="tre-col-section">
+  <div class="tre-col-grid">
+    <div class="tre-item">
+      <div class="icon-circle ic-blue">🏭</div>
+      <h4>Produttore</h4>
+      <p>
+        Realizziamo direttamente i nostri Soft Starter Quadri senza intermediari, abbattendo il costo del quadro
+        con una configurazione personalizzata per ogni esigenza.
+      </p>
+    </div>
+    <div class="tre-item">
+      <div class="icon-circle ic-teal">🔗</div>
+      <h4>Unica Soluzione</h4>
+      <p>
+        Soft Starter Quadri Elettrici con i nostri migliori prodotti Sistemi e Ogni tipo di impianto.
+        È possibile finalizzare configurazioni avanzate a piacere del cliente.
+      </p>
+    </div>
+    <div class="tre-item">
+      <div class="icon-circle ic-green">🛡️</div>
+      <h4>Assistenza</h4>
+      <p>
+        "Garantiamo qualità al livello del Quadro Elettrico che chiedete e che i clienti i chiedono con affidabilità e tecnologia."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORM CONTATTACI ══ -->
+<section class="form-section">
+  <h2>Contattaci</h2>
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text"/>
+    </div>
+    <div class="form-group">
+      <label>Azienda *</label>
+      <input type="text"/>
+    </div>
+    <div class="form-group form-full">
+      <label>Messaggio *</label>
+      <textarea rows="5"></textarea>
+    </div>
+    <div class="privacy-row">
+      <input type="checkbox" id="priv"/>
+      <label for="priv">
+        Acconsento al trattamento dei miei dati personali da parte del proprietario di questo sito Web.
+        Il consenso è rilasciato su base volontaria al TSW.
+      </label>
+    </div>
+    <div style="grid-column:1/-1; display:flex; justify-content:flex-end;">
+      <button class="btn-submit">INVIA</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="brands">
+    <span class="brand-badge">SIEMENS</span>
+    <span class="brand-badge">Schneider Electric</span>
+    <span class="brand-badge">ABB</span>
+    <span class="brand-badge">YASKAWA</span>
+    <span class="brand-badge">Lovato electric</span>
+    <span class="brand-badge">invt</span>
+  </div>
+  <p>
+    <strong>© Elettro G.A. Quadri Elettrici di A. Gianjero</strong><br/>
+    Trovato dalla Industria Turchese · Questione<br/><br/>
+    Progettazione e Programmazione PLC – HMI · Web Server Page Realizzazione<br/>
+    Costruzione e Assemblaggio · Quadri Elettrici<br/><br/>
+    Italia · Puglia · Bari · Poligono a mare 70041 · Largo Dino Giuseppe Puglia<br/><br/>
+    Contatti Diretti<br/>
+    <a href="mailto:Elettrogaquadrielettrici@gmail.com" style="color:#5aaee8;">Elettrogaquadrielettrici@gmail.com</a>
+    · Email Amministrazione Segreteria:
+    <a href="mailto:Deleno.Ag@email.com" style="color:#5aaee8;">Deleno.Ag@email.com</a>
+  </p>
+  <div class="footer-chatbox">
+    <p>Scrivi qui la tua domanda…</p>
+    <input type="text" placeholder="Scrivi qui la tua domanda…"/>
+  </div>
+</footer>
+
+</body>
+</html>

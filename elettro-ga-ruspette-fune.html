@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elettro G.A. – Quadro Gestione Ruspette con Fune D'Acciaio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark: #0a2a5e;
+      --blue-mid: #1155a0;
+      --blue-light: #2980d9;
+      --blue-sky: #5aaee8;
+      --accent: #f5a623;
+      --green: #27ae60;
+      --red: #c0392b;
+      --white: #ffffff;
+      --light-gray: #f4f6fa;
+      --text-dark: #1a1a2e;
+      --text-mid: #333;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--blue-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px; flex-wrap: wrap; gap: 8px;
+    }
+    nav .logo { font-family: 'Oswald', sans-serif; color: #fff; font-size: 1.1rem; font-weight: 700; }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    nav ul li a {
+      color: #cde; text-decoration: none; font-size: 0.69rem;
+      text-transform: uppercase; letter-spacing: .4px;
+      padding: 4px 8px; border-radius: 3px; transition: background .2s;
+    }
+    nav ul li a:hover, nav ul li a.active { background: var(--blue-mid); color: #fff; }
+    .subnav {
+      background: #0d1e40; text-align: center; padding: 6px 24px;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 4px;
+    }
+    .subnav a { color: #aac; text-decoration: none; font-size: 0.67rem; text-transform: uppercase; padding: 3px 8px; }
+    .subnav a:hover, .subnav a.active { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #c8d8ee 0%, #9ab8d8 50%, #7090b8 100%);
+      min-height: 240px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      align-items: center;
+      gap: 30px;
+      padding: 40px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-text h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      color: var(--blue-dark); letter-spacing: 2px;
+      line-height: 1.2; margin-bottom: 10px;
+    }
+    .hero-text h1 span { color: var(--red); }
+    .hero-badges { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+    .badge {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem; letter-spacing: 1px;
+      text-transform: uppercase; padding: 5px 14px;
+      border-radius: 3px;
+    }
+    .badge-red { background: var(--red); color: #fff; }
+    .badge-blue { background: var(--blue-mid); color: #fff; }
+    .badge-dark { background: var(--blue-dark); color: #fff; }
+    .hero-models {
+      display: flex; flex-direction: column; gap: 8px; text-align: right;
+    }
+    .model-tag {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem; color: var(--blue-dark);
+      letter-spacing: 2px; font-weight: 700;
+    }
+    .model-tag .ver { color: var(--blue-mid); }
+    .hero-img-strip {
+      display: flex; gap: 4px; margin-top: 12px;
+    }
+    .hero-img-box {
+      flex: 1; height: 60px;
+      background: linear-gradient(135deg, #b0c8e0, #80a8cc);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .flag-row { display: flex; gap: 6px; margin-top: 8px; align-items: center; }
+    .flag-row span { font-size: 1.4rem; }
+    .flag-row .made { font-size: 0.7rem; color: var(--blue-dark); font-weight: 700; letter-spacing: 1px; }
+
+    /* ── PROMO BANNER ── */
+    .promo-banner {
+      background: var(--blue-mid);
+      padding: 14px 50px; text-align: center;
+    }
+    .promo-banner p {
+      font-size: 0.85rem; color: var(--white); line-height: 1.7;
+    }
+    .promo-banner strong { color: var(--accent); }
+
+    /* ── INTRO ── */
+    .intro-section { padding: 40px 50px; background: #fff; }
+    .intro-section p { font-size: 0.86rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 12px; }
+    .intro-section p strong { color: var(--blue-dark); }
+
+    /* ── PERCHÉ SCEGLIERE ── */
+    .perche-section { padding: 36px 50px; background: var(--light-gray); }
+    .perche-section h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem; font-weight: 700; font-style: italic;
+      color: var(--blue-mid); margin-bottom: 14px;
+    }
+    .perche-section p { font-size: 0.84rem; line-height: 1.85; color: var(--text-mid); }
+
+    /* ── CARATTERISTICHE TECNICHE ── */
+    .caract-section { padding: 40px 50px; background: #fff; }
+    .caract-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 6px;
+    }
+    .caract-section .sub-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.88rem; font-style: italic;
+      color: var(--blue-mid); margin-bottom: 20px;
+    }
+    .caract-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px; max-width: 860px;
+    }
+    .caract-col h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem; color: var(--blue-mid);
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .caract-table { width: 100%; font-size: 0.8rem; border-collapse: collapse; }
+    .caract-table tr { border-bottom: 1px solid #e8eef8; }
+    .caract-table td { padding: 6px 8px; color: var(--text-mid); }
+    .caract-table td:first-child { font-weight: 600; color: var(--blue-dark); width: 140px; }
+    .reset-box {
+      background: var(--light-gray); border-radius: 8px;
+      padding: 20px; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .reset-icon { font-size: 3rem; }
+    .reset-box ul { list-style: none; font-size: 0.78rem; line-height: 2; color: var(--text-mid); text-align: left; }
+    .reset-box ul li::before { content: '✦ '; color: var(--blue-light); }
+
+    /* ── MODELLI DISPONIBILI ── */
+    .modelli-section { padding: 36px 50px; background: var(--light-gray); }
+    .modelli-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 14px;
+    }
+    .modelli-list { display: flex; flex-direction: column; gap: 10px; max-width: 800px; }
+    .modello-row {
+      background: #fff; border-radius: 6px;
+      padding: 14px 18px; font-size: 0.83rem;
+      color: var(--text-mid); line-height: 1.75;
+      border-left: 4px solid var(--blue-light);
+    }
+    .modello-row strong { color: var(--blue-dark); }
+
+    /* ── PERCHÉ RS2 ── */
+    .rs2-section {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 60%, var(--blue-sky) 100%);
+      padding: 50px 50px;
+    }
+    .rs2-section .top-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem; color: var(--accent);
+      letter-spacing: 3px; text-transform: uppercase;
+      text-align: center; margin-bottom: 8px;
+    }
+    .rs2-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem; color: var(--white);
+      letter-spacing: 2px; text-align: center;
+      margin-bottom: 6px;
+    }
+    .rs2-section .sub {
+      text-align: center; font-size: 0.82rem;
+      color: #acd; margin-bottom: 36px; font-style: italic;
+    }
+    .rs2-section .sub span { color: var(--accent); font-weight: 700; }
+    .rs2-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px; max-width: 1000px; margin: 0 auto;
+    }
+    .rs2-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .rs2-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .rs2-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem; color: var(--accent);
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .rs2-card ul { list-style: none; font-size: 0.76rem; color: #cde; line-height: 1.9; }
+    .rs2-card ul li::before { content: '• '; color: var(--blue-sky); }
+
+    /* ── LOGICA E CONNETTIVITA ── */
+    .logica-section { padding: 40px 50px; background: #fff; }
+    .logica-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .logica-section h2::before { content: '⚙️'; }
+    .logica-inner {
+      background: var(--light-gray); border-radius: 8px;
+      padding: 24px 28px; max-width: 860px;
+    }
+    .logica-inner h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem; color: var(--blue-mid);
+      letter-spacing: 1px; margin-bottom: 12px;
+    }
+    .logica-list { display: flex; flex-direction: column; gap: 10px; }
+    .logica-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.82rem; color: var(--text-mid); line-height: 1.7;
+    }
+    .logica-item .num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem; color: var(--blue-light);
+      font-weight: 700; flex-shrink: 0; min-width: 20px;
+    }
+    .logica-item p strong { color: var(--blue-dark); }
+
+    /* ── SIAMO A DISPOSIZIONE ── */
+    .disp-section {
+      background: var(--light-gray);
+      padding: 50px 50px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 40px; align-items: center;
+    }
+    .disp-text h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem; color: var(--blue-dark);
+      letter-spacing: 2px; margin-bottom: 8px;
+    }
+    .disp-text p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 16px; }
+    .disp-text ul { padding-left: 18px; font-size: 0.83rem; color: var(--text-mid); line-height: 2; margin-bottom: 16px; }
+    .disp-text ul li strong { color: var(--blue-dark); }
+    .assistenza-badge {
+      background: var(--blue-mid); border-radius: 10px;
+      padding: 28px; text-align: center; color: #fff;
+    }
+    .assistenza-badge .icon { font-size: 3rem; margin-bottom: 10px; }
+    .assistenza-badge h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .assistenza-badge p { font-size: 0.78rem; color: #acd; line-height: 1.65; }
+    .btn-disp {
+      display: inline-block;
+      background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem; letter-spacing: 1px;
+      text-transform: uppercase; padding: 10px 22px;
+      border-radius: 4px; text-decoration: none;
+    }
+    .btn-disp:hover { background: var(--blue-dark); }
+
+    /* ── PRODUZIONE ESCLUSIVA ── */
+    .produzione-section {
+      background: var(--blue-dark); padding: 50px 50px;
+    }
+    .produzione-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem; color: var(--white);
+      letter-spacing: 3px; margin-bottom: 6px;
+    }
+    .produzione-section .model-ref {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem; color: var(--accent);
+      letter-spacing: 2px; margin-bottom: 18px;
+    }
+    .produzione-section h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--white); font-style: italic;
+      margin-bottom: 20px;
+    }
+    .produzione-section p {
+      font-size: 0.83rem; color: #cde;
+      line-height: 1.85; margin-bottom: 12px;
+      max-width: 860px;
+    }
+    .produzione-section p strong { color: var(--white); }
+    .produzione-section ul {
+      padding-left: 18px; font-size: 0.82rem;
+      color: #cde; line-height: 2; margin-bottom: 16px;
+      max-width: 860px;
+    }
+    .produzione-section ul li strong { color: var(--white); }
+    .btn-produzione {
+      display: inline-block;
+      background: var(--accent); color: var(--blue-dark);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem; letter-spacing: 1px;
+      text-transform: uppercase; padding: 10px 24px;
+      border-radius: 4px; text-decoration: none;
+      margin-top: 10px;
+    }
+    .btn-produzione:hover { background: #e09010; }
+
+    /* ── CTA ICONS ── */
+    .cta-icons-section {
+      background: var(--light-gray); padding: 40px 50px;
+    }
+    .cta-icons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px; max-width: 860px; margin: 0 auto; text-align: center;
+    }
+    .cta-icon-item .icon { font-size: 2.5rem; margin-bottom: 10px; }
+    .cta-icon-item h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      color: var(--blue-dark); margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .btn-cta {
+      display: inline-block; margin-top: 8px;
+      background: var(--blue-light); color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.76rem; letter-spacing: 1px;
+      text-transform: uppercase; padding: 7px 16px;
+      border-radius: 3px; text-decoration: none;
+    }
+    .btn-cta:hover { background: var(--blue-dark); }
+    .btn-cta.accent { background: var(--accent); color: var(--blue-dark); }
+    .btn-cta.accent:hover { background: #e09010; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0f1e; color: #99aabb;
+      padding: 40px; text-align: center; font-size: 0.77rem; line-height: 2;
+    }
+    footer strong { color: #fff; }
+    .brands { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin: 18px 0; }
+    .brand-badge {
+      background: #fff; color: #333; font-weight: 700;
+      font-size: 0.76rem; padding: 6px 14px; border-radius: 3px; letter-spacing: 1px;
+    }
+    .footer-chatbox {
+      background: #111827; border-radius: 8px;
+      padding: 14px 20px; max-width: 280px;
+      margin: 20px auto 0; text-align: left;
+    }
+    .footer-chatbox p { font-size: 0.77rem; color: #99aabb; margin-bottom: 8px; }
+    .footer-chatbox input {
+      width: 100%; background: #1e293b;
+      border: 1px solid #334155; border-radius: 4px;
+      padding: 8px 12px; color: #cdd; font-size: 0.77rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero, .caract-grid, .rs2-grid, .disp-section,
+      .cta-icons-grid { grid-template-columns: 1fr; }
+      nav ul { justify-content: center; }
+      .intro-section, .perche-section, .caract-section, .modelli-section,
+      .rs2-section, .logica-section, .disp-section, .produzione-section,
+      .cta-icons-section { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="logo">⚡ <span>Elettro G.A.</span> Quadri Elettrici</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Azienda &amp; Contatti</a></li>
+    <li><a href="#">Quadri</a></li>
+    <li><a href="#">Elettropompe / Motore</a></li>
+    <li><a href="#">Quadro – Inverter</a></li>
+    <li><a href="#">Quadro – Soft Starter</a></li>
+  </ul>
+</nav>
+<div class="subnav">
+  <a href="#">Quadri – Prima Pioggia</a>
+  <a href="#">Quadri – Prima, Seconda Pioggia &amp; Riuso</a>
+  <a href="#" class="active">Quadri – Rascivagni a Fune Pulizia Stalle</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-text">
+    <h1>Quadro Gestione Ruspette<br/>con Fune D'Acciaio</h1>
+    <div class="hero-badges">
+      <span class="badge badge-red">🇮🇹 Qualità Italiana</span>
+      <span class="badge badge-blue">Prodotti Certificati</span>
+      <span class="badge badge-dark">Prodotti Cablati con Vera Qualità</span>
+    </div>
+    <div style="margin-top:14px; font-size:0.8rem; color: var(--blue-dark);">
+      <strong>Modalità di utilizzo professionale</strong><br/>
+      SINGOLO MOTORE &nbsp;|&nbsp; DOPPIO MOTORE
+    </div>
+    <div class="flag-row">
+      <span>🇮🇹</span>
+      <span class="made">MADE IN ITALY</span>
+    </div>
+  </div>
+  <div class="hero-models">
+    <div class="hero-img-strip">
+      <div class="hero-img-box">🔩</div>
+      <div class="hero-img-box">⚙️</div>
+    </div>
+    <div class="model-tag">QE-RS1 <span class="ver">v2.0</span></div>
+    <div class="model-tag">QE-RS2 <span class="ver">v2.0</span></div>
+  </div>
+</header>
+
+<!-- ══ PROMO BANNER ══ -->
+<div class="promo-banner">
+  <p>
+    "Sistemi di allevamento moderni e il tuo impianto ai più proietti con i <strong>nostri prodotti QE-RS1 e RS2</strong>.<br/>
+    Se forse della componentistica Siemens per la massima continuità operativa."
+  </p>
+</div>
+
+<!-- ══ INTRO ══ -->
+<section class="intro-section">
+  <p>
+    I quadri <strong>QE-RS1</strong> e <strong>QE-RS2</strong> di <strong>Elettro G.A.</strong> offrono l'affidabilità di gruppo di <strong>PLC e Display Siemens</strong> con Software realizzato nel Noc e
+    architettura componenti <strong>elettromeccanici superiori</strong>. Affidabilità totale delle sezioni secondarie.
+  </p>
+  <p>
+    Banda struttura garantisce un massima superiore e permette di assistere faultrimori ogni semplice pausa in caso di stanza,
+    <strong>evitando il blocco totale dell'impianto</strong> e garantendo il massima manutenzione.
+  </p>
+</section>
+
+<!-- ══ PERCHÉ SCEGLIERE ══ -->
+<section class="perche-section">
+  <h2>Cos'è un Quadro Elettronico per Ruspette/a Fune d'Acciaio</h2>
+  <p>
+    Un quadro elettrico per la gestione delle ruspette a fune d'acciaio è un sistema
+    di automazione progettato per guidare la raschia fune in modo alternato e continuo.
+    Il sistema automatizza tutte le funzionalità necessarie: il senso di marcia, il numero
+    di cicli, il fermo temporizzato, la velocità di movimentazione e il controllo degli
+    esiti variabili.
+  </p>
+</section>
+
+<!-- ══ CARATTERISTICHE TECNICHE ══ -->
+<section class="caract-section">
+  <h2>Caratteristiche Tecniche Chiave</h2>
+  <div class="sub-title">Quadro Elettromeccanico con PLC</div>
+  <div class="caract-grid">
+    <div class="caract-col">
+      <h4>Dati Tecnici</h4>
+      <table class="caract-table">
+        <tr><td>Tesa:</td><td>Selezione Elettrica</td></tr>
+        <tr><td>Tensione Alimentazione:</td><td>400 V AC 50Hz – Neutro: 90 MV</td></tr>
+        <tr><td>Freddo/soglia:</td><td>3 kW</td></tr>
+        <tr><td>Potenza Massima:</td><td>30 kW</td></tr>
+        <tr><td>Peso:</td><td>11 kg</td></tr>
+        <tr><td>Dimensioni mm:</td><td>500 × 400 × 250 mm</td></tr>
+        <tr><td>Corrente max Impor:</td><td>Interruttore Logici: 2.5 A, 3.0 A, 4.0 – 32 A</td></tr>
+        <tr><td>USBx 485 Port:</td><td>RS-485 + HMI Siim + HMI 750 Top</td></tr>
+        <tr><td>UGVi 485 Port:</td><td>24 V DC 6,8 A per tutti i LED/Uscite</td></tr>
+      </table>
+    </div>
+    <div class="reset-box">
+      <div class="reset-icon">🔄</div>
+      <ul>
+        <li>Arresto di Emergenza</li>
+        <li>Protezione Sovraccarico</li>
+        <li>Reset Manuale Fault</li>
+        <li>Selezione velocità fune</li>
+        <li>Conteggio cicli automatico</li>
+        <li>Inversione automatica marcia</li>
+        <li>Allarme guasto motore</li>
+        <li>Protezione termica integrata</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MODELLI DISPONIBILI ══ -->
+<section class="modelli-section">
+  <h2>Sempi e nostri Modelli disponibili</h2>
+  <div class="modelli-list">
+    <div class="modello-row">
+      <strong>QTB-RS1 v2.0</strong> – Gestione automatica di avvio (singolo motore) · 1 e 2 Correli · 1 e 2 Ruspette · 1 Motore · 2 FC
+    </div>
+    <div class="modello-row">
+      <strong>QTB-RS2 v2.0</strong> – Gestione automatica di avvio (doppio + doppio motore) · 2 Correli · 2 Ruspette · 2 Motori · 2 FC
+    </div>
+  </div>
+</section>
+
+<!-- ══ PERCHÉ RS2 – 4 COLONNE ══ -->
+<section class="rs2-section">
+  <div class="top-label">Per la politica automativa delle stanze nelle stalle</div>
+  <h2>Affidabilità, Sicurezza e Flessibilità!</h2>
+  <div class="sub">Perché <span>QTB-RS2 v2.0</span> fa la differenza…</div>
+
+  <div class="rs2-grid">
+
+    <div class="rs2-card">
+      <div class="icon">⚙️</div>
+      <h4>Automazione Completa</h4>
+      <ul>
+        <li>Funziona ciclo Standard e Motori di Stop – Dualità</li>
+        <li>Avviamenti Manual / Semi-auto</li>
+        <li>Automazione via 10 timer</li>
+        <li>Possibilità di selezionare alloro variabili in impostazioni avanzate</li>
+        <li>Gestione autonoma per cicli in automatico nella giornata</li>
+        <li>Regolazione programmata FTC8</li>
+        <li>Spia blu antifrode allineamento RS420</li>
+      </ul>
+    </div>
+
+    <div class="rs2-card">
+      <div class="icon">📟</div>
+      <h4>Controllo PLC – DISPLAY</h4>
+      <ul>
+        <li>PLC Siemens Logo!</li>
+        <li>Modulo display HMI Tipo: impostare avanzate</li>
+        <li>Contatori tempi e regolari</li>
+        <li>Gestione inverti e temporizzatori</li>
+        <li>Parametri completi e temporizzatori</li>
+        <li>Pulisci poi è tutto secondo automaticamente</li>
+        <li>Spia Pu antifrode allineamento M3</li>
+        <li>Logica Pro della macchina qualificata</li>
+      </ul>
+    </div>
+
+    <div class="rs2-card">
+      <div class="icon">🛡️</div>
+      <h4>Sicurezza e Affidabilità</h4>
+      <ul>
+        <li>Protezione del dedotto</li>
+        <li>Assistenza a un'inversa e ripartita</li>
+        <li>Avanzamento in contatto e ripartita</li>
+        <li>SPAS la sicuri rimuovere il doppio e il quadruplo</li>
+        <li>Sblocco e Reset Automatico dei ripartita</li>
+        <li>Garantisce totale con protezione e selezione delle richieste</li>
+        <li>Il Serlino Quadro PTFD. Staffa per Passamuro e Parete e Chiave di chiusura del Quadro</li>
+      </ul>
+    </div>
+
+    <div class="rs2-card">
+      <div class="icon">💹</div>
+      <h4>Vantaggi Operativi</h4>
+      <ul>
+        <li>Quadro Elettromeccanica Completo</li>
+        <li>Componenti – Disponibili</li>
+        <li>Riduzione all'avviamento e dopo tempo</li>
+        <li>Riduzione del consumo energetico</li>
+        <li>Riduzione dell'usura meccanica</li>
+        <li>Eliminazione dell'avviamento NMC</li>
+        <li>Aggiornamento – Tempo per azzerare e Trov. il ciclo fine</li>
+        <li>Protezione meccanico ad una – automazione secondo il</li>
+        <li>Le ore e il modo x e il ciclo per le più e le stalle</li>
+        <li>i cicli per le più e il modo x 2 i stalle per definire il</li>
+        <li>i mesi per più e il modo x i stalle i stalle per il</li>
+        <li>i mesi per addormentarsi per soldi e per uso</li>
+        <li>Automatismi: approvazione Made in</li>
+        <li>Qualità, blu ricercato PTFD-TN 4S1FS</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ LOGICA E CONNETTIVITÀ ══ -->
+<section class="logica-section">
+  <h2>Logica e connettività</h2>
+  <div class="logica-inner">
+    <h3>Su Richiesta:</h3>
+    <div class="logica-list">
+      <div class="logica-item">
+        <span class="num">1 –</span>
+        <p><strong>Gestione e Controllo del Remos via WIFI ESP/GSM</strong> ·<br/>
+        Interfaccia a pop-Up con la tua fune tramite smartphone (Android) con Ethernet<br/>
+        PC – Notebook – Tablet e Smartphone</p>
+      </div>
+      <div class="logica-item">
+        <span class="num">2 –</span>
+        <p><strong>Info Via Idea di Impianto da Remoto via EMAIL!</strong><br/>
+        Integrazione di Status dell'Atto impianto (Stabilità)<br/>
+        Disponibilità di quadro disponibili con invio ad Internet via PC<br/>
+        PC – Notebook – Tablet e Smartphone</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SIAMO A DISPOSIZIONE ══ -->
+<section class="disp-section">
+  <div class="disp-text">
+    <h2>Siamo a vostra disposizione</h2>
+    <p><strong>Scerti il valore dedicato all'acquisto.</strong></p>
+    <p>Ecco come richieda la:</p>
+    <ul>
+      <li>sta già effettuato contabile il numero visitando visualizza, dove percorrere</li>
+      <li>sta già effettuate o in riscatto e la Ricevuta i ricambi disponibili</li>
+      <li>sta già visita ricevuta o la da le proposti</li>
+    </ul>
+    <a href="#" class="btn-disp">Richiedi una consulenza</a>
+  </div>
+  <div class="assistenza-badge">
+    <div class="icon">🛠️</div>
+    <h3>ASSISTENZA<br/>TECNICA</h3>
+    <p>
+      Supporto tecnico dedicato.<br/>
+      Intervento rapido.<br/>
+      Ricambi disponibili.
+    </p>
+  </div>
+</section>
+
+<!-- ══ PRODUZIONE ESCLUSIVA ══ -->
+<section class="produzione-section">
+  <h2>Produzione esclusiva nei nostri laboratori.</h2>
+  <div class="model-ref">QTB-RS2 V2.0</div>
+  <h3>La Rivoluzione nell'Automazione della Pulizia nelle Stalle</h3>
+  <p>
+    La nuova quadro elettrico di <strong>Elettro G.A.</strong> porta l'efficienza e la sicurezza della tua stalla con Nulle operazioni.
+    Ogni il massimo del <strong>QTB-V2.0</strong> nasce per garantire un funzionamento fluido, rapido e senza interruzioni.
+    <strong>Massimo risparmio energetico</strong> e azionamento ottimale in qualità e affidabilità.
+  </p>
+  <p>
+    È il <strong>MASSIMO, QTB-RS2</strong> che si chiusa al vostro impianto con il sistema software <strong>LOGO!</strong> e <strong>HLET</strong> possibile dal Modello RS2.
+    <strong>Dataland Surface – Sonda PTFD, Staffa</strong> per Passamuro e Parete e Chiave di chiusura del Quadro.
+  </p>
+  <p><strong>È NATURALMENTE:</strong></p>
+  <ul>
+    <li>Progettato per massimizzare l'efficienza e sempre permettere la operazione dell'allevamento</li>
+    <li>Dell'automatica efficienti medi PLC: affidabilità delle more per manutenere. Astasse e meso figure il tipo quadro in cerroti MAS</li>
+    <li>Facilità <strong>software e una nostra robusta progettazione</strong></li>
+  </ul>
+  <ul>
+    <li>Facilitazione componenti efficienti e <strong>verranno di modo favorabile</strong></li>
+    <li>Caratterizza un supporto tecnico temporizzata, affidamento del Tecnico, Costruttore e Programmatore del Quadro.</li>
+  </ul>
+  <a href="#" class="btn-produzione">Scopri la Soluzione</a>
+</section>
+
+<!-- ══ CTA ICONS ══ -->
+<section class="cta-icons-section">
+  <div class="cta-icons-grid">
+    <div class="cta-icon-item">
+      <div class="icon">🐄</div>
+      <h4>Nel'azienda del settore?</h4>
+      <a href="#" class="btn-cta">Contattateci</a>
+    </div>
+    <div class="cta-icon-item">
+      <div class="icon">⏱️</div>
+      <h4>Vuoi ottimizzare i processi della stalla?</h4>
+      <a href="#" class="btn-cta">Richiedi Info</a>
+    </div>
+    <div class="cta-icon-item">
+      <div class="icon">⚙️</div>
+      <h4>Richiedi il listino prezzi netto</h4>
+      <a href="#" class="btn-cta accent">Richiedi il listino prezzi netto</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="brands">
+    <span class="brand-badge">SIEMENS</span>
+    <span class="brand-badge">Schneider Electric</span>
+    <span class="brand-badge">ABB</span>
+    <span class="brand-badge">YASKAWA</span>
+    <span class="brand-badge">Lovato electric</span>
+    <span class="brand-badge">invt</span>
+  </div>
+  <p>
+    <strong>© Elettro G.A. Quadri Elettrici di A. Gianjero</strong><br/>
+    Trovato dalla Industria Turchese · Questione<br/><br/>
+    Progettazione e Programmazione PLC – HMI · Web Server Page Realizzazione<br/>
+    Costruzione e Assemblaggio · Quadri Elettrici<br/><br/>
+    Italia · Puglia · Bari · Poligono a mare 70041 · Largo Dino Giuseppe Puglia<br/><br/>
+    Contatti Diretti<br/>
+    <a href="mailto:Elettrogaquadrielettrici@gmail.com" style="color:#5aaee8;">Elettrogaquadrielettrici@gmail.com</a>
+    · Email Amministrazione Segreteria:
+    <a href="mailto:Deleno.Ag@email.com" style="color:#5aaee8;">Deleno.Ag@email.com</a>
+  </p>
+  <div class="footer-chatbox">
+    <p>Scrivi qui la tua domanda…</p>
+    <input type="text" placeholder="Scrivi qui la tua domanda…"/>
+  </div>
+</footer>
+
+</body>
+</html>

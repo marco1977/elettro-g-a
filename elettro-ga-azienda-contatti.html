@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elettro G.A. – Azienda &amp; Contatti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-dark: #0a2a5e;
+      --blue-mid: #1155a0;
+      --blue-light: #2980d9;
+      --blue-sky: #5aaee8;
+      --accent: #f5a623;
+      --green: #27ae60;
+      --white: #ffffff;
+      --light-gray: #f4f6fa;
+      --text-dark: #1a1a2e;
+      --text-mid: #333;
+    }
+
+    body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--blue-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    nav .logo {
+      font-family: 'Oswald', sans-serif;
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    nav .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px; }
+    nav ul li a {
+      color: #cde;
+      text-decoration: none;
+      font-size: 0.70rem;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      padding: 4px 8px;
+      border-radius: 3px;
+      transition: background .2s;
+    }
+    nav ul li a:hover, nav ul li a.active { background: var(--blue-mid); color: #fff; }
+    .subnav {
+      background: #0d1e40;
+      text-align: center;
+      padding: 6px 24px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .subnav a {
+      color: #aac;
+      text-decoration: none;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      padding: 3px 8px;
+    }
+    .subnav a:hover { color: #fff; }
+
+    /* ── HERO BANNER ── */
+    .hero-banner {
+      background: linear-gradient(135deg, #c8d8ee 0%, #a0bcd8 60%, #7aa0c4 100%);
+      min-height: 130px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 28px 40px 22px;
+      gap: 20px;
+    }
+    .hero-banner h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--blue-dark);
+    }
+    .hero-banner h1 span { color: var(--blue-mid); }
+    .hero-banner .certezza {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--blue-mid);
+      text-align: right;
+    }
+    .hero-banner .certezza::after { content: ' 🔄'; }
+
+    /* ── CHI SIAMO ── */
+    .chi-siamo {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 0;
+      max-width: 100%;
+    }
+    .chi-siamo-img {
+      background: linear-gradient(135deg, #b0c8e0, #8aafd0);
+      min-height: 280px;
+    }
+    .chi-siamo-text {
+      padding: 36px 40px;
+      background: #fff;
+    }
+    .chi-siamo-text h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      color: var(--blue-mid);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .chi-siamo-text p {
+      font-size: 0.84rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+    .chi-siamo-text p strong { color: var(--blue-dark); }
+    .chi-siamo-text .address {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      margin-top: 14px;
+      font-style: italic;
+    }
+
+    /* ── IL CUORE / ARTIGIANALE ── */
+    .cuore-section {
+      background: var(--light-gray);
+      padding: 50px 40px;
+    }
+    .cuore-section .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      color: var(--blue-mid);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .cuore-section h2 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 14px;
+    }
+    .cuore-section .quote {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #555;
+      border-left: 3px solid var(--blue-light);
+      padding-left: 14px;
+      margin-bottom: 16px;
+      line-height: 1.75;
+    }
+    .cuore-section p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+    .cuore-section ul {
+      padding-left: 18px;
+      font-size: 0.84rem;
+      line-height: 2;
+      color: var(--text-mid);
+    }
+    .cuore-section ul li strong { color: var(--blue-dark); }
+
+    /* ── ORARI ── */
+    .orari-section {
+      background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-sky) 100%);
+      padding: 40px 40px;
+    }
+    .orari-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .orari-box {
+      background: rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 24px 28px;
+    }
+    .orari-box h3 {
+      font-family: 'Oswald', sans-serif;
+      color: #fff;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .orari-table { width: 100%; font-size: 0.85rem; color: #dce8f5; }
+    .orari-table th {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      padding-bottom: 6px;
+      color: var(--accent);
+      text-align: left;
+    }
+    .orari-table td { padding: 4px 0; }
+    .btn-green {
+      display: inline-block;
+      margin-top: 18px;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-green:hover { background: #1e8449; }
+    .sede-box {
+      background: rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 24px 28px;
+    }
+    .sede-box h3 {
+      font-family: 'Raleway', sans-serif;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .sede-box ul {
+      list-style: disc;
+      padding-left: 18px;
+      color: #dce8f5;
+      font-size: 0.83rem;
+      line-height: 2;
+    }
+
+    /* ── CONTATTACI FORM ── */
+    .form-section {
+      background: var(--white);
+      padding: 50px 40px;
+    }
+    .form-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      color: var(--blue-dark);
+      margin-bottom: 28px;
+      letter-spacing: 2px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 860px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+    }
+    .form-group label span { color: #c0392b; }
+    .form-group input,
+    .form-group textarea {
+      border: 1px solid #c0ccdd;
+      border-radius: 4px;
+      padding: 9px 12px;
+      font-size: 0.84rem;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      background: var(--light-gray);
+      resize: vertical;
+      transition: border .2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { outline: none; border-color: var(--blue-light); background: #fff; }
+    .form-full { grid-column: 1 / -1; }
+    .form-upload {
+      border: 1px dashed #aabbd0;
+      border-radius: 4px;
+      padding: 18px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #778;
+      background: var(--light-gray);
+      cursor: pointer;
+    }
+    .form-upload span { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+    .privacy-row {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .privacy-row input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; }
+    .btn-submit {
+      display: inline-block;
+      background: var(--blue-light);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 28px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background .2s;
+      margin-top: 6px;
+    }
+    .btn-submit:hover { background: var(--blue-dark); }
+
+    /* ── SUGGERIMENTI MAPS ── */
+    .maps-section {
+      background: var(--light-gray);
+      padding: 40px 40px;
+    }
+    .maps-section h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      color: var(--blue-mid);
+      font-style: italic;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-decoration: underline;
+    }
+    .maps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 900px; }
+    .maps-card h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+    }
+    .maps-card p { font-size: 0.82rem; line-height: 1.75; color: var(--text-mid); }
+
+    /* ── SERVIZIO PERSONALIZZATO ── */
+    .servizio-section {
+      background: #fff;
+      padding: 50px 40px;
+      text-align: center;
+    }
+    .servizio-section p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+      line-height: 1.8;
+    }
+    .servizio-section p strong { color: var(--blue-dark); }
+    .servizio-section .tags {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.88rem;
+      color: var(--blue-mid);
+      letter-spacing: 1px;
+      margin-top: 8px;
+    }
+
+    /* ── SIAMO PRONTI ── */
+    .pronti-section {
+      background: var(--light-gray);
+      padding: 50px 40px;
+    }
+    .pronti-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      color: var(--blue-mid);
+      text-align: center;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+    .pronti-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .pronti-item { display: flex; gap: 14px; align-items: flex-start; }
+    .pronti-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .pronti-item h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 5px;
+    }
+    .pronti-item p { font-size: 0.82rem; line-height: 1.7; color: var(--text-mid); }
+
+    /* ── GALLERIA STRIP ── */
+    .gallery-strip {
+      display: flex;
+      gap: 4px;
+      height: 80px;
+      overflow: hidden;
+    }
+    .gallery-strip div {
+      flex: 1;
+      background: linear-gradient(135deg, #8aafd0, #5580a8);
+    }
+    .gallery-strip div:nth-child(odd) { background: linear-gradient(135deg, #a0bcd8, #708aad); }
+
+    /* ── BANNER CENTRALE ── */
+    .central-banner {
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue-mid));
+      text-align: center;
+      padding: 20px 40px;
+    }
+    .central-banner p {
+      font-family: 'Oswald', sans-serif;
+      color: var(--white);
+      font-size: 1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ── DICONO DI NOI ── */
+    .recensioni-section {
+      background: var(--light-gray);
+      padding: 50px 40px;
+    }
+    .recensioni-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: var(--blue-dark);
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+    .recensioni-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .rec-left ul { list-style: none; font-size: 0.8rem; color: var(--text-mid); line-height: 2; }
+    .rec-left ul li strong { color: var(--blue-dark); }
+    .rec-middle { display: flex; flex-direction: column; gap: 16px; }
+    .rec-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 16px;
+      border-left: 4px solid var(--blue-light);
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+    .rec-card strong { color: var(--blue-dark); display: block; margin-bottom: 4px; }
+    .rec-right { text-align: center; }
+    .stars { color: var(--accent); font-size: 1.1rem; letter-spacing: 2px; }
+    .btn-recensioni {
+      display: inline-block;
+      margin-top: 14px;
+      background: var(--blue-light);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .social-icons { display: flex; gap: 14px; justify-content: center; margin-top: 16px; font-size: 1.4rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0f1e;
+      color: #99aabb;
+      padding: 40px;
+      text-align: center;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+    footer strong { color: var(--white); }
+    .brands {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .brand-badge {
+      background: #fff;
+      color: #333;
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: 3px;
+      letter-spacing: 1px;
+    }
+    .footer-chatbox {
+      background: #111827;
+      border-radius: 8px;
+      padding: 14px 20px;
+      max-width: 300px;
+      margin: 20px auto 0;
+      text-align: left;
+    }
+    .footer-chatbox p { font-size: 0.78rem; color: #99aabb; margin-bottom: 8px; }
+    .footer-chatbox input {
+      width: 100%;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 4px;
+      padding: 8px 12px;
+      color: #cdd;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 700px) {
+      .chi-siamo, .orari-grid, .form-grid, .maps-grid, .pronti-grid, .recensioni-grid { grid-template-columns: 1fr; }
+      nav ul { justify-content: center; }
+      .hero-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="logo">⚡ <span>Elettro G.A.</span> Quadri Elettrici</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="active">Azienda &amp; Contatti</a></li>
+    <li><a href="#">Quadri</a></li>
+    <li><a href="#">Elettropompe / Motore</a></li>
+    <li><a href="#">Quadro – Inverter</a></li>
+    <li><a href="#">Quadro – Soft Starter</a></li>
+  </ul>
+</nav>
+<div class="subnav">
+  <a href="#">Quadri – Prima Pioggia</a>
+  <a href="#">Quadri – Prima, Seconda Pioggia &amp; Riuso</a>
+  <a href="#">Rascivagni a più pulizia stelle</a>
+</div>
+
+<!-- ══ HERO BANNER ══ -->
+<div class="hero-banner">
+  <h1>🔗 <span>La nostra esperienza nel tempo</span></h1>
+  <div class="certezza">La vostra certezza oggi</div>
+</div>
+
+<!-- ══ CHI SIAMO ══ -->
+<div class="chi-siamo">
+  <div class="chi-siamo-img"></div>
+  <div class="chi-siamo-text">
+    <h2>Chi Siamo</h2>
+    <p>
+      Dalla passione per l'elettrotecnica e una solida formazione come
+      Tecnico delle Industrie Elettriche, nasce una realtà fondata su oltre
+      vent'anni di attività nel settore della qualificata.
+    </p>
+    <p>
+      Siamo specializzati nella progettazione e realizzazione di quadri
+      elettrici per l'avviamento di motori ad elettropompe, oltre che in
+      soluzioni per l'automazione industriale.
+    </p>
+    <p>
+      È in questi ambiti che abbiamo consolidato il nostro know-how per
+      offrire soluzioni performanti, sicure e tecnologicamente avanzate.
+      Ogni progetto è per noi una sfida che affrontiamo con rigore artigianale
+      e precisione industriale, garantendo la massima cura in ogni cablagggio.
+    </p>
+    <p><em>Cosa forniamo</em></p>
+    <p class="address">
+      Ci troviamo nel cuore della zona artigianale di Poligrano a Mare (BA) –<br/>
+      🏭 Largo Don D. Puglia° – 70044
+    </p>
+  </div>
+</div>
+
+<!-- ══ IL CUORE / ARTIGIANALE ══ -->
+<section class="cuore-section">
+  <div class="section-label">Il cuore e l'artigianale</div>
+  <h2>Gestione delle Acque e Automazione</h2>
+  <div class="quote">
+    "Siamo specialisti nella progettazione e cablaggio di quadri elettrici per la gestione delle acque e delle acque meteoriche, con un focus primario su stazioni di sollevamento, impianti di depurazione e pompaggio."
+  </div>
+  <p>
+    Grazie a un'esperienza consolidata nel settore idrico, realizziamo sistemi su misura per il controllo di vasche di prima pioggia e il
+    drenaggio urbano, garantendo soluzioni precise per la prevenzione e il trattamento delle acque.
+  </p>
+  <p>
+    Uniamo la precisione delle tecnologie di automazione industriale alla solidità dei nostri quadri di distribuzione di potenza,
+    assicurando efficienza operativa, sicurezza e massima continuità di servizio in ogni condizione.
+  </p>
+  <p><strong>In sintesi:</strong></p>
+  <ul>
+    <li><strong>Acque, Acque:</strong> Quadri per sollevamento, depurazione e pompaggio.</li>
+    <li><strong>Acque Meteoriche:</strong> Sistemi di controllo per vasche di prima pioggia e invasi.</li>
+    <li><strong>Automazione Industriale:</strong> Logiche di comando e controllo avanzate.</li>
+    <li><strong>Avviamenti di Ultima Generazione:</strong> Integrazione di tecnologie per partenze graduate e risparmio energetico.</li>
+    <li><strong>Prodotti Standardizzati:</strong> Soluzioni pronte all'uso per le configurazioni di distribuzione e pompaggio più comuni.</li>
+    <li><strong>Distribuzione di Potenza:</strong> Quadri elettrici BT per l'alimentazione degli impianti.</li>
+  </ul>
+</section>
+
+<!-- ══ ORARI + SEDE ══ -->
+<section class="orari-section">
+  <div class="orari-grid">
+    <div>
+      <div class="orari-box">
+        <h3>I nostri Orari:</h3>
+        <table class="orari-table">
+          <thead>
+            <tr>
+              <th>Giorno</th>
+              <th>Mattina</th>
+              <th>Pomeriggio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lunedì – Venerdì</td>
+              <td>07:00 – 13:00</td>
+              <td>15:00 – 19:30</td>
+            </tr>
+            <tr>
+              <td>Sabato</td>
+              <td>07:00 – 13:00</td>
+              <td>Chiuso</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="#" class="btn-green">Visualizza le Nostre Realizzazioni</a>
+      </div>
+    </div>
+    <div>
+      <div class="sede-box">
+        <h3>La nostra Sede è Poligrano a Mare,<br/>70044, BA, Largo Don G. Puglia.</h3>
+        <ul>
+          <li>Laboratorio Attrezzato</li>
+          <li>Avviatori Standardizzati</li>
+          <li>Produzione su commissione</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTATTACI FORM ══ -->
+<section class="form-section">
+  <h2>Contattaci!</h2>
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Nome <span>*</span></label>
+      <input type="text" placeholder=""/>
+    </div>
+    <div class="form-group">
+      <label>Allega File</label>
+      <div class="form-upload">
+        <span>📎</span>
+        Upload
+      </div>
+    </div>
+    <div class="form-group">
+      <label>E-mail <span>*</span></label>
+      <input type="email" placeholder=""/>
+    </div>
+    <div class="form-group form-full">
+      <label>Messaggio <span>*</span></label>
+      <textarea rows="5" placeholder=""></textarea>
+    </div>
+    <div class="privacy-row">
+      <input type="checkbox" id="privacy"/>
+      <label for="privacy">
+        Acconsento al trattamento dei miei dati personali da parte del proprietario di questo sito Web.
+      </label>
+    </div>
+    <div style="display:flex; justify-content:flex-end;">
+      <button class="btn-submit">Invia</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SUGGERIMENTI MAPS ══ -->
+<section class="maps-section">
+  <h3>Suggerimenti su come raggiungere la nostra sede Elettro G.A. Quadri Elettrici</h3>
+  <div class="maps-grid">
+    <div class="maps-card">
+      <h4>Provenienza da Bari:</h4>
+      <p>
+        prendete l'ultima uscita. Poligrano sul zona artigianale, sulla complesso nuova circolare, veniate al primo incrocio trova sulla sinistra la nostra in prima strada a DX e rifornendo le
+        Largo Puglia, la nostra sede è sulla prima strada a DX col tornando in piazza.
+      </p>
+    </div>
+    <div class="maps-card">
+      <h4>Provenienza da Brindisi:</h4>
+      <p>
+        Approcciare, appena usciti di all'interno locale sulla nosta strada SS, rifornendo e
+        attraversando il crocevia A DX, salite dopo uscite la nostra in prima strada a DX col tornando in piazza
+        Largo Puglia, la nostra sede è sulla prima strada a DX col tornando in piazza.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVIZIO PERSONALIZZATO ══ -->
+<section class="servizio-section">
+  <p><strong>Il nostro servizio personalizzato vi accompagna in ogni fase, dalla progettazione all'assistenza post-vendita.</strong></p>
+  <p class="tags">Quadri normalizzati – Automazione e Controllo – Rifasamento diretti e automatici</p>
+</section>
+
+<!-- ══ SIAMO PRONTI ══ -->
+<section class="pronti-section">
+  <h2>Siamo pronti a realizzare il quadro elettrico per le tue esigenze</h2>
+  <div class="pronti-grid">
+    <div class="pronti-item">
+      <div class="pronti-icon">🔍</div>
+      <div>
+        <h4>Cosa offriamo:</h4>
+        <p>Progettazione su misura in base alle tue specifiche · Componenti di qualità · Assistenza tecnica e consulenza professionale.</p>
+      </div>
+    </div>
+    <div class="pronti-item">
+      <div class="pronti-icon">💬</div>
+      <div>
+        <h4>Consulenza gratuita:</h4>
+        <p>Contattaci per chiarimenti e preventivi, raccontaci cosa vorresti realizzare; insieme troveremo la soluzione più efficace e sicura.</p>
+      </div>
+    </div>
+    <div class="pronti-item">
+      <div class="pronti-icon">📊</div>
+      <div>
+        <h4>Dal progetto alla realizzazione:</h4>
+        <p>Siamo il tuo partner di fiducia più appropriato.</p>
+      </div>
+    </div>
+    <div class="pronti-item">
+      <div class="pronti-icon">🤝</div>
+      <div>
+        <h4>Assistenza:</h4>
+        <p>Scopri la dedizione e la professionalità posta in ogni intervento!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERIA STRIP ══ -->
+<div class="gallery-strip">
+  <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+</div>
+
+<!-- ══ BANNER CENTRALE ══ -->
+<div class="central-banner">
+  <p>Costruiamo elettrica · nella nostra azienda.</p>
+</div>
+
+<!-- ══ DICONO DI NOI ══ -->
+<section class="recensioni-section">
+  <div class="recensioni-grid">
+    <div class="rec-left">
+      <h2>Dicono di noi…</h2>
+      <ul>
+        <li>⭐ <strong>Esperienza</strong></li>
+        <li>⭐ <strong>Professionalità</strong></li>
+        <li>⭐ <strong>Qualità</strong></li>
+        <li>⭐ <strong>Tempestività</strong></li>
+        <li>⭐ <strong>Assistenza</strong></li>
+        <li style="margin-top:10px; font-size:0.75rem; color:#778;">Al. S. Ettolilli</li>
+      </ul>
+    </div>
+    <div class="rec-middle">
+      <div class="rec-card">
+        <strong>Sg. T. Falone</strong>
+        Testo della recensione del cliente Sg. T. Falone — esperienza positiva con i quadri elettrici.
+      </div>
+      <div class="rec-card">
+        <strong>Av. L.A.B</strong>
+        Testo della recensione del cliente Av. L.A.B — soddisfatto del servizio e della qualità.
+      </div>
+      <div class="rec-card">
+        <strong>Al. Salla Furi</strong>
+        Testo della recensione del cliente Al. Salla Furi — professionalità e puntualità eccellenti.
+      </div>
+    </div>
+    <div class="rec-right">
+      <div class="stars">★★★★★</div>
+      <a href="#" class="btn-recensioni">Le nostre Recensioni</a>
+      <div class="social-icons">
+        <span>📘</span>
+        <span>📸</span>
+        <span>✉️</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="brands">
+    <span class="brand-badge">SIEMENS</span>
+    <span class="brand-badge">Schneider Electric</span>
+    <span class="brand-badge">ABB</span>
+    <span class="brand-badge">YASKAWA</span>
+    <span class="brand-badge">Lovato electric</span>
+    <span class="brand-badge">invt</span>
+  </div>
+  <p>
+    <strong>© Elettro G.A. Quadri Elettrici di A. Gianjero</strong><br/>
+    Trovato dalla Industria Turchese · Questione<br/><br/>
+    Progettazione e Programmazione PLC – HMI · Web Server Page Realizzazione<br/>
+    Costruzione e Assemblaggio · Quadri Elettrici<br/><br/>
+    Italia · Puglia · Bari · Poligono a mare 70041 · Largo Dino Giuseppe Puglia<br/>
+    Contatti Numero: Elettricità Alimentari<br/><br/>
+    Contatti Diretti<br/>
+    <a href="mailto:Elettrogaquadrielettrici@gmail.com" style="color:#5aaee8;">Elettrogaquadrielettrici@gmail.com</a>
+    · Email Amministrazione Segreteria:
+    <a href="mailto:Deleno.Ag@email.com" style="color:#5aaee8;">Deleno.Ag@email.com</a>
+  </p>
+  <div class="footer-chatbox">
+    <p>Scrivi qui la tua domanda…</p>
+    <input type="text" placeholder="Scrivi qui la tua domanda…"/>
+  </div>
+</footer>
+
+</body>
+</html>
