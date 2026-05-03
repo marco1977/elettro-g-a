@@ -337,29 +337,45 @@ nav button:hover {
 .nav-drawer ul {
   flex-direction: column;
   gap: 0;
-  padding: 1rem 0;
+  padding: 0;
 }
 
 .nav-drawer li {
   width: 100%;
-  border-bottom: 1px solid rgba(85, 170, 232, 0.2);
+  border-bottom: 1px solid rgba(85, 170, 232, 0.15);
 }
 
 .nav-drawer a, .nav-drawer button {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   border-radius: 0;
   justify-content: space-between;
   font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .nav-drawer a:hover,
 .nav-drawer a.active {
-  background-color: rgba(17, 85, 160, 0.4);
+  background-color: var(--blue-mid);
+  color: var(--white);
+}
+
+.nav-drawer button {
+  background: none;
+  border: none;
+}
+
+.nav-drawer button:hover {
+  background-color: var(--blue-mid);
+  color: var(--white);
 }
 
 .submenu {
   display: none;
+  background-color: rgba(10, 42, 94, 0.7);
 }
 
 .submenu.active {
@@ -372,8 +388,15 @@ nav button:hover {
 
 .submenu a {
   padding-left: 3rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-size: 0.85rem;
-  background-color: rgba(17, 85, 160, 0.2);
+  background-color: transparent;
+  color: rgba(90, 174, 232, 0.95);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 /* ===== HERO SECTION ===== */
