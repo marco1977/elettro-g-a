@@ -1,0 +1,576 @@
+================================================================================
+CONTENUTI ESTRATTI DAGLI SCREENSHOT - ELETTRO G.A. QUADRI ELETTRICI
+================================================================================
+
+PAGINA: HOMEPAGE (httpswww.elettro-g-a.ithome.png.png)
+================================================================================
+
+HERO SECTION
+-----------
+Titolo: ELETTRO G.A.
+Sottotitolo: QUADRI ELETTRICI
+Claim: MADE IN ITALY
+Descrizione: Il prodotto più adatto alle tue esigenze.
+            Richiedici subito maggiori informazioni.
+
+3 SERVIZI PRINCIPALI
+-------------------
+1. 🔧 Progettazione Personalizzata
+2. 🏭 Produzione e Assemblaggio
+3. 🛠️ Assistenza Tecnica - Magazzino Ricambi
+
+SEZIONE "IL NOSTRO LAVORO"
+--------------------------
+Titolo: Il nostro lavoro
+Sottotitolo: La Passione che accende ogni quadro!
+
+Punti chiave:
+• Mettiamo la nostra esperienza al servizio delle tue esigenze. Analizziamo il
+  tuo progetto e lo trasformiamo in un prodotto finito di qualità.
+• La disponibilità immediata di un magazzino ricambi fornito ci permette di
+  garantire tempi di attesa molto brevi.
+
+Callout:
+"Ti piacerebbe vedere il tuo brand trasformato in un'opera d'arte?
+Con noi puoi dare vita a un quadro unico che parla della tua azienda."
+
+QUOTE BANNER
+-----------
+"Quadri evoluti... Gestione semplificata."
+
+SEZIONE EFFICIENZA
+-------------------
+Titolo: L'efficienza scorre attraverso l'innovazione.
+
+Descrizione:
+In Elettro G.A. Quadri Elettrici, non costruiamo semplici quadri di controllo,
+ma il cuore pulsante del tuo impianto.
+
+Applicazioni:
+• Depurazione: Avviamento multiplo per elettropompe.
+• Pressurizzazione: Gruppi pompa e sistemi di sollevamento.
+• Drenaggio acque reflue: Elettromeccanico o PLC/HMI.
+• Meteoriche: Gestione acque piovane e stazioni di sollevamento.
+• Controllo Livelli e Portate: Automazione e monitoraggio per serbatoi e pozzi.
+• Soluzioni Custom: Quadri progettati sulle tue specifiche tecniche (PLC/HMI).
+• Gamma Standard: Pronta consegna per le applicazioni più comuni.
+
+Note: Scegliere noi significa affidarsi alla potenza e all'affidabilità di
+       SIEMENS e SCHNEIDER – pilastri mondiali della tecnologia.
+
+SEZIONE PROGETTAZIONE
+----------------------
+Sottitolo: PROGETTAZIONE
+
+Soluzioni Rapide:
+Titolo: Soluzioni Rapide
+Descrizione: La progettazione di display di testo per una diagnostica immediata
+             e intuitiva.
+
+Visione Chiara:
+Titolo: Visione Chiara
+Descrizione: Pannelli grafici avanzati per il monitoraggio completo e in tempo
+             reale dell'intero processo. Con Elettro G.A. la qualità costruttiva
+             incontra il software più adatto alle tue reali esigenze.
+
+CARD PRODOTTI (6 PRODOTTI)
+---------------------------
+1. Soluzioni per la Zootecnia
+   Descrizione: Quadri su misura per l'automazione di ventilazione e pulizia stalle.
+   Link: ruspette-fune.html
+   CTA: Scopri
+
+2. Acque Meteoriche
+   Descrizione: Soluzioni elettriche per la gestione della raccolta, decantazione,
+                pompaggio e smaltimento delle acque piovane.
+   Link: prima-pioggia.html
+   CTA: Scopri
+
+3. Quadri su commissione
+   Descrizione: Trasformiamo le tue idee in logica di funzionamento: sistemi
+                elettrici per motori e pompe.
+   Link: contatti.html
+   CTA: Scopri
+
+4. Avviamenti Gravosi
+   Descrizione: Soluzioni con sistemi di avviamento affidabili. Quadri ad Inverter,
+                Soft Starter e Impedenza Statorica.
+   Link: soft-starter.html
+   CTA: Scopri
+
+5. Avviamento Motori/Elettropompe
+   Descrizione: Configurazioni multiple per il controllo e affidabilità operativa.
+                Soluzioni ad Inverter.
+   Link: quadri-inverter.html
+   CTA: Scopri
+
+6. Realizzazione prototipi
+   Descrizione: Sviluppiamo programmi PLC per prototipi funzionali e personalizzati.
+   Link: contatti.html
+   CTA: Scopri
+
+CTA FINALE
+----------
+Titolo: Per maggiori info contattaci
+Descrizione: Al fianco del cliente con assistenza tecnica dedicata: Dalla scelta
+             del quadro alla messa in servizio, fino al supporto post-vendita.
+CTA: Contattaci ora
+
+
+PAGINA: AZIENDA (screencapture-elettro-g-a-it-azienda-contatti)
+================================================================================
+
+HEADER
+------
+Titolo: 🔗 La nostra esperienza nel tempo
+Sottotitolo: La vostra certezza oggi 🔄
+
+SEZIONE CHI SIAMO
+------------------
+Titolo: Chi Siamo
+
+Testo:
+Dalla passione per l'elettrotecnica e una solida formazione come Tecnico delle
+Industrie Elettriche, nasce una realtà fondata su oltre vent'anni di attività
+nel settore.
+
+Siamo specializzati nella progettazione e realizzazione di quadri elettrici per
+l'avviamento di motori ed elettropompe, oltre che in soluzioni per l'automazione
+industriale.
+
+Ogni progetto è per noi una sfida che affrontiamo con rigore artigianale e
+precisione industriale, garantendo la massima cura in ogni cablaggio.
+
+Indirizzo: 📍 Polignano a Mare (BA) – Largo Don G. Puglisi – 70044
+
+SEZIONE GESTIONE ACQUE
+-----------------------
+Sottitolo: Il cuore e l'artigianale
+Titolo: Gestione delle Acque e Automazione
+
+Quote:
+"Siamo specialisti nella progettazione e cablaggio di quadri elettrici per la
+gestione delle acque e delle acque meteoriche, con un focus primario su stazioni
+di sollevamento, impianti di depurazione e pompaggio."
+
+Descrizione:
+Grazie a un'esperienza consolidata nel settore idrico, realizziamo sistemi su
+misura per il controllo di vasche di prima pioggia e il drenaggio urbano.
+
+In sintesi - Specilizzazioni:
+• Acque: Quadri per sollevamento, depurazione e pompaggio.
+• Acque Meteoriche: Sistemi di controllo per vasche di prima pioggia.
+• Automazione Industriale: Logiche di comando e controllo avanzate.
+• Avviamenti: Tecnologie per partenze graduate e risparmio energetico.
+• Prodotti Standardizzati: Soluzioni pronte all'uso.
+• Distribuzione di Potenza: Quadri elettrici BT per l'alimentazione.
+
+SEZIONE ORARI E INFO
+---------------------
+I nostri Orari:
+┌──────────────────┬──────────────┬──────────────┐
+│ Giorno           │ Mattina      │ Pomeriggio   │
+├──────────────────┼──────────────┼──────────────┤
+│ Lunedì – Venerdì │ 07:00 – 13:00│ 15:00 – 19:30│
+│ Sabato           │ 07:00 – 13:00│ Chiuso       │
+└──────────────────┴──────────────┴──────────────┘
+
+CTA: Visualizza le Nostre Realizzazioni (link: gallery.html)
+
+Info Sede:
+"La nostra Sede è Polignano a Mare, 70044, BA, Largo Don G. Puglisi."
+
+Servizi disponibili:
+• Laboratorio Attrezzato
+• Avviatori Standardizzati
+• Produzione su commissione
+
+SEZIONE COSA OFFRIAMO
+----------------------
+Titolo: Siamo pronti a realizzare il quadro elettrico per le tue esigenze
+
+1. 🔍 Cosa offriamo:
+   Progettazione su misura, componenti di qualità, assistenza tecnica e
+   consulenza professionale.
+
+2. 💬 Consulenza gratuita:
+   Contattaci per chiarimenti e preventivi, raccontaci cosa vorresti realizzare.
+
+3. 📊 Dal progetto alla realizzazione:
+   Siamo il tuo partner di fiducia più appropriato.
+
+4. 🤝 Assistenza:
+   Scopri la dedizione e la professionalità posta in ogni intervento!
+
+
+PAGINA: CONTATTI
+================================================================================
+
+HEADER
+------
+Titolo: Contattaci
+Sottotitolo: Siamo a tua disposizione per qualsiasi informazione
+
+FORM CONTATTI
+--------------
+Campi:
+• Nome (obbligatorio)
+• Telefono (obbligatorio)
+• E-mail (obbligatorio)
+• Azienda (opzionale)
+• Messaggio (obbligatorio)
+• Checkbox privacy
+
+Button: INVIA
+
+SEZIONE INDICAZIONI STRADALI
+-----------------------------
+Titolo: Come raggiungere la nostra sede
+
+Provenienza da Bari:
+"Prendete l'uscita per Polignano a Mare, zona artigianale. Largo Don G. Puglisi,
+la nostra sede è sulla prima strada a destra."
+
+Provenienza da Brindisi:
+"Uscita Polignano a Mare, seguire le indicazioni per la zona artigianale. Largo
+Don G. Puglisi, la nostra sede è sulla prima strada a destra."
+
+BANNER FINALE
+-------------
+"Il nostro servizio personalizzato vi accompagna in ogni fase"
+
+
+PAGINA: QUADRI INVERTER
+================================================================================
+
+HERO SECTION
+-----------
+Titolo: QUADRI AVVIAMENTO INVERTER
+Sottotitolo: CONTROLLO VELOCITÀ VARIABILE
+Badge: Risparmio Energetico fino al 40%
+
+SEZIONE PRINCIPALE
+------------------
+Titolo: Soluzioni Inverter per ogni esigenza impiantistica
+
+Descrizione:
+I nostri quadri ad inverter consentono il controllo preciso della velocità del
+motore, garantendo un risparmio energetico significativo e una maggiore durata
+degli impianti.
+
+Compatibili con YASKAWA, SCHNEIDER ATV320 e altre marche leader del settore.
+Potenze da 0,75kW fino a 75kW.
+
+3 CARD INVERTER
+----------------
+1. Inverter Monofase 230V
+   Range: 0,75 – 4 kW
+   Descrizione: Soluzione compatta per motori monofase. Controllo V/f e vettoriale.
+
+2. Inverter Trifase 400V
+   Range: 1,5 – 37 kW
+   Descrizione: Per pompe e motori trifase. Protezione integrata e comunicazione Modbus.
+
+3. Inverter Multi-Pompa
+   Range: fino a 75 kW
+   Descrizione: Gestione multi-pompa con alternanza, cascata e PID integrato.
+
+CTA
+---
+Titolo: Richiedi un preventivo personalizzato
+Button: Contattaci (link: contatti.html)
+
+
+PAGINA: ELETTROPOMPE E MOTORI
+================================================================================
+
+HERO SECTION
+-----------
+Titolo: QUADRI ELETTROPOMPE E MOTORI STANDARDIZZATI
+Sottotitolo: ELETTROMECCANICI
+Badge: Prodotti Certificati
+
+INTRO SECTION
+-------------
+Testo 1:
+Presentiamo quadri elettrici la cui gamma si propone di offrire soluzioni per
+la gestione e la configurazione di motori e/o elettropompe adeguati per ogni
+tipo e configurazione.
+
+Testo 2:
+È possibile realizzare configurazioni personalizzate per ogni esigenza di
+servizio – MASSIMA DURATA E AFFIDABILITÀ!
+
+SEZIONE AVVIAMENTO DIRETTO (230V/400V)
+--------------------------------------
+Titolo: Avviamento Diretto – Alimentazione 230V o 400V
+Sottotitolo: Affidabilità che dura, Tecnologia che protegge
+Descrizione: Quadri di comando ad avviamento diretto per motori ed elettropompe
+            (potenze fino a 15kW).
+
+3 CARD AVVIAMENTO
+-----------------
+1. QTB-GAD 1.MF – MONOFASE 230V
+   Sottotitolo: Avviamento Diretto 230V – MONOFASE
+
+   Specifiche:
+   • Corrente nominale: 5A – 32A
+   • Tensione: 230V Monofase
+   • Contattore: EL-Mark
+   • Potenza Max: 4 kW
+   • Protezione termica integrata
+   • Interruttore Magnetotermico Schneider/Siemens
+   • Protezione IP55
+
+2. QTB-GAD 3.M – TRIFASE 400V
+   Sottotitolo: Avviamento Diretto 400V – TRIFASE
+
+   Specifiche:
+   • Corrente nominale: 3×5A – 32A
+   • Tensione: 400V Trifase
+   • Contattore: EL-Mark / Schneider
+   • Potenza Max: 7,5 kW
+   • Spia di Fase / mancanza Fase
+   • Relè Termico Regolabile
+   • Protezione IP55
+
+3. QTB-GAD 3.M – DOPPIA POMPA 400V
+   Sottotitolo: Avviamento Diretto 400V – B 3×TRIFASE
+
+   Specifiche:
+   • Corrente: 2×5A – 32A
+   • Tensione: 400V Trifase
+   • Contattore: 2×EL-Mark
+   • Potenza Max: 2×7,5 kW
+   • Gestione alternata 2 pompe
+   • Protezione per ogni pompa
+   • Protezione IP55
+
+SEZIONE GESTIONE LIVELLI/PRESSURIZZAZIONE
+------------------------------------------
+Titolo: Avviamento Diretto per Gestione: Livelli – Pressurizzazione
+Sottotitolo: Alimentazione 230V o 400V
+Descrizione: Quadri evoluti per la gestione autonoma di pompe in parallelo.
+            Soluzioni per distribuzione idrica e reti idriche complesse.
+
+3 CARD SISTEMI GESTIONE
+-----------------------
+1. QTB-GAD 1 – SISTEMA DIGITALE IO
+   Sottotitolo: QTB-GALX – 230V / TRIFASE
+
+   Specifiche:
+   • Tensione: 230V / 400V
+   • Corrente: 10A – 32A
+   • N° Pompe: 1 – 2 – 3
+   • Sonde: Digitale IO Livello
+   • Display LCD digitale
+   • Gestione alternata pompe
+   • Allarme livello min/max
+
+2. QTB-GAD – SISTEMA ANALOGICO
+   Sottotitolo: QTB-GALX – 0-10V Trasduttori
+
+   Specifiche:
+   • Tensione: 230V / 400V
+   • Corrente: 10A – 32A
+   • Sonde: Analogico 0-10V
+   • Trasduttori: 4-20mA
+   • Controllo pressione continuo
+   • Display LCD digitale
+   • Protezione IP55
+
+3. QTB-GAD – PLC/HMI AVANZATO
+   Sottotitolo: Sistema PLC Siemens / ELMARK
+
+   Specifiche:
+   • PLC: Siemens Logo! / S7-1200
+   • HMI: 7" touchscreen
+   • Pompe: fino a 4 in alternanza
+   • Supervisione remota Ethernet/GSM
+   • Storico eventi e allarmi
+   • Configurazione multipla
+   • Protezione IP55/IP65
+
+CTA
+---
+Titolo: Richiedi informazioni o preventivo
+Button: Contattaci (link: contatti.html)
+
+
+PAGINA: PRIMA PIOGGIA (CIVILE/RESIDENZIALE)
+================================================================================
+
+HERO SECTION
+-----------
+Titolo: GESTIONE ACQUE DI PRIMA E SECONDA PIOGGIA
+Sottotitolo: CIVILI E RESIDENZIALI
+Icona: 🌧️
+
+SEZIONE PRINCIPALE
+------------------
+Titolo: Gestione Quadri per Acque di Prima Pioggia
+
+Descrizione:
+I nostri quadri gestiscono in modo automatico il ciclo delle acque meteoriche,
+separando le acque di prima pioggia (più inquinate) da quelle successive, in
+conformità al D.Lgs 152/2006.
+
+Applicazioni:
+• Prima Pioggia: Primi 5mm – trattamento obbligatorio per legge
+• Seconda Pioggia: Acque successive, gestione semplificata
+• Automazione: PLC Siemens con HMI touchscreen
+• Monitoraggio: Supervisione remota via Ethernet/GSM
+
+3 TIPOLOGIE
+-----------
+1. Quadro Prima Pioggia Standard
+   Descrizione: Singola pompa con logica automatica di raccolta e svuotamento vasca.
+   CTA: Richiedi info →
+
+2. Quadro Prima Pioggia Avanzato
+   Descrizione: Multi-pompa con HMI, storico eventi e supervisione remota.
+   CTA: Richiedi info →
+
+3. Quadro Prima + Seconda Pioggia
+   Descrizione: Gestione completa separazione flussi con elettrovalvole automatiche.
+   CTA: Richiedi info →
+
+CTA FINALE
+----------
+Titolo: Configura il tuo sistema di gestione acque
+Button: Contattaci (link: contatti.html)
+
+
+PAGINA: PRIMA, SECONDA PIOGGIA E RIUSO (INDUSTRIALE)
+================================================================================
+
+HERO SECTION
+-----------
+Titolo: QUADRI PRIMA, SECONDA PIOGGIA
+Sottotitolo: E RIUSO ACQUA
+Titolo3: INDUSTRIALI
+Icona: 🌧️
+
+SEZIONE SPIEGAZIONE
+-------------------
+3 COLONNE:
+
+1. PRIMA PIOGGIA
+   Sottotesto: Primi 5 mm – acque inquinate
+   Descrizione: Le prime acque di pioggia, contenenti le sostanze più inquinanti.
+                Trattamento obbligatorio (D.Lgs 152/2006).
+
+2. SECONDA PIOGGIA
+   Sottotesto: Acque successive – meno inquinate
+   Descrizione: Le acque meteoriche successive, meno inquinate, gestibili con
+                trattamento ridotto o riuso.
+
+3. RIUSO ACQUA
+   Sottotesto: Recupero per usi non potabili
+   Descrizione: Sistema di recupero per irrigazione, lavaggio, sistemi antincendio
+                e altri usi non potabili.
+
+SEZIONE GESTIONE PLC/HMI
+------------------------
+Titolo: Gestione Quadri PLC/HMI di Prima, Seconda Pioggia e Riuso Acque Industriali
+
+Descrizione:
+I nostri sistemi di controllo gestiscono in modo intelligente e automatico
+l'intero ciclo delle acque meteoriche all'interno di contesti industriali,
+artigianali e civili di grandi dimensioni. La logica programmata del PLC SIEMENS
+o ELMARK coordina le diverse fasi.
+
+Modalità operative:
+• Modalità Automatica: gestione autonoma secondo la logica programmata
+• Modalità Manuale: intervento diretto sui singoli attuatori
+• Modalità Remota: supervisione a distanza tramite HMI, SCADA o app mobile
+
+SEZIONE MODELLO QG-NAMATE
+--------------------------
+Modello: QG – NAMATE
+Titolo: Pompe Prima Pioggia
+Versione: Standard
+Bandiera: 🇮🇹
+
+Descrizione:
+Ogni quadro viene premontato e collaudato nel nostro laboratorio. Il PLC SIEMENS
+gestisce le fasi del ciclo idraulico: raccolta, stoccaggio, trattamento e
+distribuzione.
+
+L'interfaccia HMI consente controllo completo: visualizzazione livelli, stato
+pompe, allarmi e storico eventi.
+
+5 CATEGORIE COMPONENTI
+-----------------------
+1. Elettriche
+   • Interruttori magnetotermici
+   • Contattori EL-Mark
+   • Fusibili certificati
+
+2. Config. HMI
+   • PLC Siemens Logo!
+   • HMI 7" touchscreen
+   • Display grafico avanzato
+
+3. Rilev. Livelli
+   • Sonde digitali
+   • Trasduttori 4-20mA
+   • Sensori di portata
+
+4. Controllo
+   • Rilevamento automatico
+   • Controllo pH opzionale
+   • Storico eventi su HMI
+
+5. Protezione IP65
+   • Carpenteria IP55/IP65
+   • Protezione termica
+   • Prot. mancanza fase
+
+SEZIONE TIPOLOGIE AVVIAMENTI
+-----------------------------
+Titolo: Tipologie di avviamenti disponibili
+Descrizione: Tutti i quadri possono essere equipaggiati con il tipo di
+             avviamento più adatto alle specifiche esigenze del motore.
+
+3 CARD AVVIAMENTI
+------------------
+1. Diretto
+   Potenza: fino a 15kW
+   Descrizione: Soluzione semplice ed economica. Avvio immediato senza rampe.
+   Emoji: ⚡
+
+2. Soft Starter
+   Potenza: 11kW – 90kW
+   Descrizione: Riduce la corrente di spunto. Compatibile Siemens e ABB.
+   Emoji: 🔆
+
+3. Inverter
+   Potenza: 0,75kW – 75kW
+   Descrizione: Risparmio energetico fino al 40%. Controllo preciso
+                portata/pressione.
+   Emoji: 📊
+
+SEZIONE BENEFICI
+----------------
+3 COLONNE:
+
+1. ♻️ Riduzione dei costi - Riuso Acqua Piovana
+   Descrizione: Recuperando l'acqua piovana per usi non potabili si ottiene una
+                riduzione significativa dei consumi idrici.
+
+2. 📋 Monitoraggio Preciso - Ogni Fase del Sistema
+   Descrizione: Il sistema HMI consente il monitoraggio in tempo reale di tutti
+                i parametri dell'impianto.
+
+3. 🛡️ Piena Conformità - Normativa
+   Descrizione: I nostri sistemi garantiscono piena conformità al D.Lgs 152/2006.
+
+CTA FINALE
+----------
+Titolo: Configura il tuo sistema industriale
+Button: Contattaci (link: contatti.html)
+
+================================================================================
+Fine CONTENUTI ESTRATTI
+================================================================================
